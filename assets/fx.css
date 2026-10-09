@@ -1,0 +1,171 @@
+/* ============================================================
+   الزمن الجميل — تأثيرات متقدّمة
+   ============================================================ */
+
+/* ============================================================
+   ١) مشعل الاستكشاف — المكان مُعتم ويُكشف بضوء دافئ
+   ============================================================ */
+.torch{
+  position:relative;border-radius:var(--r-lg);overflow:hidden;
+  aspect-ratio:16/9;cursor:crosshair;isolation:isolate;
+  box-shadow:var(--shadow-lg);background:#0E0906;
+}
+@media(max-width:640px){.torch{aspect-ratio:4/5}}
+
+.torch__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* الطبقة المعتمة فوق الصورة */
+.torch__dark{
+  position:absolute;inset:0;background:#0B0704;
+  transition:opacity .6s var(--ease);
+}
+/* نسخة مضيئة تُكشف عبر قناع متحرّك */
+.torch__lit{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:brightness(1.22) saturate(1.18) contrast(1.04);
+  -webkit-mask-image:radial-gradient(circle var(--tr,0px) at var(--tx,50%) var(--ty,50%),
+      #000 0%,rgba(0,0,0,.86) 46%,rgba(0,0,0,.35) 74%,transparent 100%);
+          mask-image:radial-gradient(circle var(--tr,0px) at var(--tx,50%) var(--ty,50%),
+      #000 0%,rgba(0,0,0,.86) 46%,rgba(0,0,0,.35) 74%,transparent 100%);
+  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+}
+/* هالة ضوء المشعل */
+.torch__halo{
+  position:absolute;width:var(--halo,340px);aspect-ratio:1;border-radius:50%;
+  left:var(--tx,50%);top:var(--ty,50%);translate:-50% -50%;
+  background:radial-gradient(circle,rgba(255,170,70,.3),rgba(255,140,40,.1) 45%,transparent 70%);
+  pointer-events:none;mix-blend-mode:screen;
+  transition:opacity .5s;opacity:0;
+}
+.torch.is-live .torch__halo{opacity:1}
+.torch__hint{
+  position:absolute;inset-block-end:16px;inset-inline:0;text-align:center;
+  font-size:.8rem;letter-spacing:.16em;color:rgba(244,234,218,.72);
+  pointer-events:none;transition:opacity .4s;z-index:3;
+}
+.torch.is-live .torch__hint{opacity:0}
+
+/* ============================================================
+   ٢) قبل / بعد — شريط سحب
+   ============================================================ */
+.ba{
+  position:relative;border-radius:var(--r-lg);overflow:hidden;
+  aspect-ratio:16/10;user-select:none;box-shadow:var(--shadow-lg);
+  background:#17110D;touch-action:pan-y;
+}
+@media(max-width:640px){.ba{aspect-ratio:4/5}}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba__after{clip-path:inset(0 0 0 var(--split,50%))}
+
+.ba__bar{
+  position:absolute;inset-block:0;inset-inline-start:var(--split,50%);
+  width:3px;background:var(--st-mustard);translate:-50% 0;
+  box-shadow:0 0 22px rgba(212,162,76,.85);cursor:ew-resize;z-index:3;
+}
+.ba__knob{
+  position:absolute;inset-block-start:50%;inset-inline-start:50%;
+  translate:-50% -50%;width:52px;height:52px;border-radius:50%;
+  background:var(--st-mustard);color:#17110D;
+  display:grid;place-items:center;font-size:1.1rem;font-weight:700;
+  box-shadow:0 8px 26px rgba(0,0,0,.5);cursor:ew-resize;
+}
+.ba__tag{
+  position:absolute;inset-block-start:16px;z-index:2;
+  font-size:.72rem;letter-spacing:.18em;padding:.4rem .9rem;border-radius:100px;
+  background:rgba(23,17,13,.8);color:var(--cream);backdrop-filter:blur(8px);
+}
+.ba__tag--a{inset-inline-end:16px}
+.ba__tag--b{inset-inline-start:16px}
+
+/* ============================================================
+   ٣) المشي داخل المطعم — لفّ أفقي مربوط بالتمرير
+   ============================================================ */
+.walk{position:relative;height:300vh}
+.walk__sticky{
+  position:sticky;inset-block-start:0;height:100vh;
+  display:flex;align-items:center;overflow:hidden;
+}
+.walk__rail{display:flex;gap:22px;padding-inline:6vw;will-change:transform}
+.walk__card{
+  position:relative;flex:none;width:min(62vw,560px);aspect-ratio:3/2;
+  border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg);
+}
+.walk__card img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.walk__card:hover img{transform:scale(1.06)}
+.walk__card figcaption{
+  position:absolute;inset-block-end:0;inset-inline:0;padding:2.2rem 1.4rem 1.1rem;
+  font-family:var(--f-display);font-size:1.3rem;color:#fff;
+  background:linear-gradient(to top,rgba(11,7,4,.9),transparent);
+}
+.walk__step{
+  position:absolute;inset-block-start:0;inset-inline-start:0;
+  font-family:var(--f-display);font-size:.9rem;color:var(--st-mustard);
+  background:rgba(11,7,4,.75);padding:.4rem .9rem;border-end-end-radius:12px;
+}
+.walk__prog{
+  position:absolute;inset-block-end:38px;inset-inline:8vw;height:3px;
+  background:rgba(244,234,218,.18);border-radius:3px;overflow:hidden;
+}
+.walk__prog i{display:block;height:100%;width:0;background:var(--st-mustard)}
+
+/* ============================================================
+   ٤) ميل ثلاثي الأبعاد للبطاقات
+   ============================================================ */
+.tilt{transform-style:preserve-3d;transition:transform .5s var(--ease)}
+.tilt__in{transform:translateZ(26px)}
+
+/* ============================================================
+   ٥) كشف سينمائي بقناع متحرّك
+   ============================================================ */
+[data-wipe]{clip-path:inset(0 100% 0 0);transition:clip-path 1.2s var(--ease)}
+[data-wipe].is-in{clip-path:inset(0 0 0 0)}
+
+/* ============================================================
+   ٦) عدّادات الأرقام
+   ============================================================ */
+.kpi__val[data-count]{font-variant-numeric:tabular-nums}
+
+/* ============================================================
+   ٧) مؤشّر الجمرة
+   ============================================================ */
+.ember-cursor{
+  position:fixed;z-index:999;pointer-events:none;
+  width:11px;height:11px;border-radius:50%;
+  background:radial-gradient(circle,#FFE9A8,#FF8A2B 60%,transparent 72%);
+  box-shadow:0 0 16px 5px rgba(255,138,43,.42);
+  translate:-50% -50%;opacity:0;transition:opacity .4s;
+}
+.ember-cursor.is-on{opacity:1}
+.ember-trail{
+  position:fixed;z-index:998;pointer-events:none;
+  width:6px;height:6px;border-radius:50%;background:#FF9A33;
+  translate:-50% -50%;opacity:.6;
+}
+
+/* ============================================================
+   ٨) ستارة مسرح بين الأقسام
+   ============================================================ */
+.curtain{
+  position:relative;height:0;overflow:visible;z-index:5;
+}
+.curtain::before,.curtain::after{
+  content:"";position:absolute;inset-inline:0;height:34px;
+  background:var(--stripes);background-size:220px 100%;
+}
+.curtain::before{inset-block-start:-17px;
+  clip-path:polygon(0 0,100% 0,100% 55%,96% 100%,92% 55%,88% 100%,84% 55%,80% 100%,
+    76% 55%,72% 100%,68% 55%,64% 100%,60% 55%,56% 100%,52% 55%,48% 100%,44% 55%,
+    40% 100%,36% 55%,32% 100%,28% 55%,24% 100%,20% 55%,16% 100%,12% 55%,8% 100%,
+    4% 55%,0 100%)}
+.curtain::after{display:none}
+
+/* ============================================================
+   احترام تقليل الحركة
+   ============================================================ */
+@media (prefers-reduced-motion:reduce){
+  .ember-cursor,.ember-trail{display:none!important}
+  [data-wipe]{clip-path:none;transition:none}
+  .walk{height:auto}
+  .walk__sticky{position:static;height:auto;overflow-x:auto}
+  .torch__lit{-webkit-mask-image:none;mask-image:none}
+  .torch__dark{opacity:0}
+}

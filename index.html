@@ -13,9 +13,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@200;300;400;500;600;700&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=3">
-<link rel="stylesheet" href="assets/magic.css?v=3">
-<link rel="stylesheet" href="assets/oven.css?v=3">
+<link rel="stylesheet" href="assets/styles.css?v=4">
+<link rel="stylesheet" href="assets/magic.css?v=4">
+<link rel="stylesheet" href="assets/oven.css?v=4">
+<link rel="stylesheet" href="assets/fx.css?v=4">
 </head>
 <body>
 
@@ -36,6 +37,7 @@
       <a href="#oven">الفرن</a>
       <a href="#teaser">التشويقي</a>
       <a href="#brand">الهويّة</a>
+      <a href="#explore">استكشف</a>
       <a href="#menu">المنيو</a>
       <a href="#why-location">لماذا موقعكم</a>
       <a href="#numbers">الأرقام</a>
@@ -181,6 +183,42 @@
       <stop offset="1" stop-color="#1A0E06" stop-opacity="0"/>
     </radialGradient>
 
+
+    <!-- اهتزاز الحرارة: feTurbulence يولّد ضجيجاً، وfeDisplacementMap
+         يُزيح البكسلات به — فيرتجف الهواء كما فوق نار حقيقيّة. -->
+    <filter id="heat" x="-25%" y="-25%" width="150%" height="150%"
+            color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.008 0.022"
+                    numOctaves="2" seed="7" result="noise">
+        <animate attributeName="baseFrequency"
+                 dur="9s" repeatCount="indefinite"
+                 values="0.008 0.022;0.013 0.034;0.010 0.027;0.008 0.022"/>
+        <animate attributeName="seed" dur="4s" repeatCount="indefinite"
+                 values="7;19;31;7"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="4.5"
+                         xChannelSelector="R" yChannelSelector="G" result="disp"/>
+      <!-- تمويه يُذيب حواف التمزّق فيبقى اللهب لهباً -->
+      <feGaussianBlur in="disp" stdDeviation="1.9"/>
+    </filter>
+
+    <filter id="heatStrong" x="-35%" y="-35%" width="170%" height="170%"
+            color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02 0.06"
+                    numOctaves="3" seed="2" result="n">
+        <animate attributeName="baseFrequency" dur="5.5s" repeatCount="indefinite"
+                 values="0.02 0.06;0.034 0.09;0.02 0.06"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="16"
+                         xChannelSelector="R" yChannelSelector="B"/>
+      <feGaussianBlur stdDeviation="1.1"/>
+    </filter>
+
+    <linearGradient id="hazeG" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0"   stop-color="#FFB45A" stop-opacity=".3"/>
+      <stop offset=".55" stop-color="#FF9A33" stop-opacity=".12"/>
+      <stop offset="1"   stop-color="#FF8A2B" stop-opacity="0"/>
+    </linearGradient>
     <clipPath id="domeClip"><path d="M526.0 462.0 L525.7 443.4 L524.8 424.8 L523.2 406.3 L521.1 388.0 L518.3 369.9 L514.9 352.0 L511.0 334.4 L506.5 317.2 L501.4 300.4 L495.7 284.0 L489.5 268.1 L482.8 252.7 L475.6 238.0 L468.0 223.8 L459.8 210.3 L451.2 197.4 L442.2 185.3 L432.8 174.0 L423.1 163.4 L413.0 153.7 L402.6 144.8 L391.9 136.8 L381.0 129.6 L369.8 123.4 L358.5 118.1 L347.0 113.8 L335.4 110.4 L323.6 108.0 L311.8 106.5 L300.0 106.0 L288.2 106.5 L276.4 108.0 L264.6 110.4 L253.0 113.8 L241.5 118.1 L230.2 123.4 L219.0 129.6 L208.1 136.8 L197.4 144.8 L187.0 153.7 L176.9 163.4 L167.2 174.0 L157.8 185.3 L148.8 197.4 L140.2 210.3 L132.0 223.8 L124.4 238.0 L117.2 252.7 L110.5 268.1 L104.3 284.0 L98.6 300.4 L93.5 317.2 L89.0 334.4 L85.1 352.0 L81.7 369.9 L78.9 388.0 L76.8 406.3 L75.2 424.8 L74.3 443.4 L74.0 462.0 L74.0 462.0 Z"/></clipPath>
     <clipPath id="mouthClip"><path d="M412.0 462.0 L411.8 453.8 L411.4 445.7 L410.6 437.6 L409.6 429.6 L408.2 421.6 L406.5 413.8 L404.6 406.1 L402.3 398.5 L399.8 391.2 L397.0 384.0 L393.9 377.0 L390.6 370.3 L387.0 363.8 L383.2 357.6 L379.2 351.7 L374.9 346.1 L370.5 340.8 L365.8 335.8 L361.0 331.2 L356.0 326.9 L350.8 323.0 L345.6 319.5 L340.1 316.4 L334.6 313.6 L329.0 311.3 L323.3 309.4 L317.5 307.9 L311.7 306.9 L305.9 306.2 L300.0 306.0 L294.1 306.2 L288.3 306.9 L282.5 307.9 L276.7 309.4 L271.0 311.3 L265.4 313.6 L259.9 316.4 L254.4 319.5 L249.2 323.0 L244.0 326.9 L239.0 331.2 L234.2 335.8 L229.5 340.8 L225.1 346.1 L220.8 351.7 L216.8 357.6 L213.0 363.8 L209.4 370.3 L206.1 377.0 L203.0 384.0 L200.2 391.2 L197.7 398.5 L195.4 406.1 L193.5 413.8 L191.8 421.6 L190.4 429.6 L189.4 437.6 L188.6 445.7 L188.2 453.8 L188.0 462.0 L188.0 462.0 Z"/></clipPath>
 
@@ -350,7 +388,7 @@
     </g>
 
     <!-- وهج داخلي -->
-    <ellipse class="mouthglow" cx="300" cy="440" rx="120" ry="92" fill="url(#glow)" filter="url(#soft)"/>
+    <ellipse class="mouthglow" cx="300" cy="438" rx="132" ry="104" fill="url(#glow)" filter="url(#soft)"/>
 
     <!-- جمر -->
     <g class="embers">
@@ -360,15 +398,15 @@
       <circle cx="300" cy="438" r="3.6" fill="#FFD36B"/>
     </g>
 
-    <!-- اللهب خلف الطاجن -->
-    <g filter="url(#flameBlur)">
-      <path class="fl fl--c" fill="url(#flameG)" opacity=".62"
-            d="M238 434 C216 396 230 364 246 334 C255 366 272 398 254 434 Z"/>
-      <path class="fl fl--b" fill="url(#flameG)" opacity=".8"
-            d="M352 434 C332 398 346 362 364 332 C373 366 390 400 370 434 Z"/>
-      <path class="fl fl--a" fill="url(#flameG)" opacity=".9"
-            d="M300 436 C268 392 284 342 300 302 C316 342 334 392 300 436 Z"/>
-      <path class="fl fl--core" fill="url(#coreG)" opacity=".85"
+    <!-- اللهب خلف الطاجن — باهتزاز الحرارة -->
+    <g filter="url(#heat)">
+      <path class="fl fl--c" fill="url(#flameG)" opacity=".8"
+            d="M240 434 C214 394 230 358 248 328 C258 362 276 398 256 434 Z"/>
+      <path class="fl fl--b" fill="url(#flameG)" opacity=".92"
+            d="M350 434 C328 396 344 358 364 326 C374 362 392 400 370 434 Z"/>
+      <path class="fl fl--a" fill="url(#flameG)"
+            d="M300 436 C262 390 280 336 300 294 C320 336 338 390 300 436 Z"/>
+      <path class="fl fl--core" fill="url(#coreG)"
             d="M300 434 C288 410 294 382 300 358 C306 382 314 410 300 434 Z"/>
     </g>
 
@@ -407,6 +445,12 @@
     </g>
   </g>
 
+  <!-- ===== موجة حرارة تخرج من الفوهة وترتجف ===== -->
+  <g class="haze" filter="url(#heatStrong)">
+    <path d="M196 458 C196 392 404 392 404 458 Z" fill="url(#hazeG)"/>
+    <path d="M226 440 C226 356 374 356 374 440 Z" fill="url(#hazeG)" opacity=".7"/>
+  </g>
+
   <!-- ===== عتبة الفوهة ===== -->
   <rect x="176" y="455" width="248" height="17" rx="5" fill="url(#sill)" stroke="#2A1E14" stroke-width="2.2"/>
   <rect x="176" y="455" width="248" height="5" rx="2.5" fill="#FFA23C" opacity=".35"/>
@@ -425,6 +469,7 @@
   <rect x="72" y="500" width="86" height="12.5" rx="6" fill="#6E4A2A" stroke="#40260F" stroke-width="1.5"/><circle cx="72" cy="506.2" r="6.2" fill="#8E6F49" stroke="#40260F" stroke-width="1.3"/><circle cx="72" cy="506.2" r="2.4" fill="#5A3D22"/><rect x="78" y="487" width="76" height="12.5" rx="6" fill="#6E4A2A" stroke="#40260F" stroke-width="1.5"/><circle cx="78" cy="493.2" r="6.2" fill="#8E6F49" stroke="#40260F" stroke-width="1.3"/><circle cx="78" cy="493.2" r="2.4" fill="#5A3D22"/><rect x="84" y="474" width="66" height="12.5" rx="6" fill="#6E4A2A" stroke="#40260F" stroke-width="1.5"/><circle cx="84" cy="480.2" r="6.2" fill="#8E6F49" stroke="#40260F" stroke-width="1.3"/><circle cx="84" cy="480.2" r="2.4" fill="#5A3D22"/>
   <rect x="442" y="500" width="86" height="12.5" rx="6" fill="#6E4A2A" stroke="#40260F" stroke-width="1.5"/><circle cx="442" cy="506.2" r="6.2" fill="#8E6F49" stroke="#40260F" stroke-width="1.3"/><circle cx="442" cy="506.2" r="2.4" fill="#5A3D22"/><rect x="448" y="487" width="76" height="12.5" rx="6" fill="#6E4A2A" stroke="#40260F" stroke-width="1.5"/><circle cx="448" cy="493.2" r="6.2" fill="#8E6F49" stroke="#40260F" stroke-width="1.3"/><circle cx="448" cy="493.2" r="2.4" fill="#5A3D22"/><rect x="454" y="474" width="66" height="12.5" rx="6" fill="#6E4A2A" stroke="#40260F" stroke-width="1.5"/><circle cx="454" cy="480.2" r="6.2" fill="#8E6F49" stroke="#40260F" stroke-width="1.3"/><circle cx="454" cy="480.2" r="2.4" fill="#5A3D22"/>
 </svg>
+          <div class="sparks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
           <p class="furn__hint" id="furnHint">اضغط لإدخال الصينيّة</p>
         </div>
       </div>
@@ -637,7 +682,7 @@
     </div>
 
     <div class="gallery" id="gallery" data-reveal style="margin-block-start:clamp(32px,5vw,56px)">
-      <figure class="gallery__item gallery__item--lg">
+      <figure class="gallery__item gallery__item--lg" data-wipe>
         <img src="assets/img/interior-01.jpg" alt="صالون عربي: عودان على الحائط، كنب مزهّر، أثاث خيزران، بلاط منقوش" loading="lazy">
         <figcaption>الصالة الرئيسية — طابع الصالون العربي</figcaption>
       </figure>
@@ -671,59 +716,118 @@
   </div>
 </section>
 
+
+<!-- ============================ الاستكشاف ============================ -->
+<section class="sec sec--dark" id="explore">
+  <div class="wrap">
+    <p class="eyebrow eyebrow--light" data-reveal>٠٦ — استكشف</p>
+    <h2 class="h2 h2--light" data-split data-reveal>أضئ المكان بنفسك</h2>
+    <p class="sub sub--light" data-reveal>مرّر المؤشّر — أو إصبعك على الجوال — داخل الإطار.</p>
+
+    <div class="torch" data-reveal>
+      <img class="torch__img" src="assets/img/interior-01.jpg" alt="الصالة الرئيسية في العتمة">
+      <div class="torch__dark"></div>
+      <img class="torch__lit" src="assets/img/interior-01.jpg" alt="">
+      <span class="torch__halo"></span>
+      <p class="torch__hint">◦ مرّر لتُضيء ◦</p>
+    </div>
+
+    <h3 class="h3" style="color:var(--cream)">قبل · بعد</h3>
+    <p class="sub sub--light" data-reveal>اسحب الشريط. وعند وصول صورة الموقع فارغاً،
+    تُستبدل الصورة اليمنى فيرى المالك مكانه قبل وبعد بعينه.</p>
+
+    <div class="ba" data-reveal style="--split:50%">
+      <img src="assets/img/interior-03.jpg" alt="الحالة الأولى">
+      <img class="ba__after" src="assets/img/interior-02.jpg" alt="الحالة بعد التجهيز">
+      <span class="ba__tag ba__tag--a">قبل</span>
+      <span class="ba__tag ba__tag--b">بعد</span>
+      <div class="ba__bar"><span class="ba__knob">⇄</span></div>
+    </div>
+    <div class="callout" data-reveal>
+      <b>جاهز لصورتكم:</b> أرسلوا صورة الموقع فارغاً وأضعها في الجهة اليمنى —
+      وتصبح هذه أقوى ورقة في العرض.
+      <span class="badge">يُستكمل منكم</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ المشي داخل المطعم ============================ -->
+<section class="walk" id="walk" aria-label="جولة داخل المطعم">
+  <div class="walk__sticky">
+    <div class="walk__rail">
+      <figure class="walk__card"><span class="walk__step">١ — المدخل</span>
+        <img src="assets/img/interior-01.jpg" alt="المدخل والصالة الرئيسية" loading="lazy">
+        <figcaption>تدخل… فيستقبلك العود والضوء الدافئ</figcaption></figure>
+      <figure class="walk__card"><span class="walk__step">٢ — حائط الذكريات</span>
+        <img src="assets/img/interior-02.jpg" alt="حائط الصور المؤطّرة" loading="lazy">
+        <figcaption>صور مؤطّرة تحكي زمناً</figcaption></figure>
+      <figure class="walk__card"><span class="walk__step">٣ — الجلسات</span>
+        <img src="assets/img/interior-04.jpg" alt="منطقة الجلسات" loading="lazy">
+        <figcaption>مقاعد تشبه بيت الجدّة</figcaption></figure>
+      <figure class="walk__card"><span class="walk__step">٤ — الممرّ</span>
+        <img src="assets/img/interior-05.jpg" alt="الممرّ الداخلي" loading="lazy">
+        <figcaption>وبلاطٌ يحكي قبل أن تجلس</figcaption></figure>
+      <figure class="walk__card"><span class="walk__step">٥ — الطاولة</span>
+        <img src="assets/img/brand-placemat.jpg" alt="المفرش المطرّز بالشعار" loading="lazy">
+        <figcaption>الهويّة تصل الطاولة</figcaption></figure>
+    </div>
+    <div class="walk__prog"><i></i></div>
+  </div>
+</section>
+
 <!-- ============================ المنيو ============================ -->
 <section class="sec sec--pattern" id="menu" data-par="0.05">
   <div class="wrap">
-    <p class="eyebrow" data-reveal>٠٦ — المنيو</p>
+    <p class="eyebrow" data-reveal>٠٧ — المنيو</p>
     <h2 class="h2" data-split data-reveal>المنيو مرتّب حول الفرن</h2>
     <p class="sub" data-reveal>أعدنا ترتيب الأقسام ليتقدّم ما يُخبز في الفرن —
     لأن هذا ما يميّزكم، وكان مدفوناً في منتصف المنيو.</p>
 
     <div class="menu" data-reveal>
-      <article class="menu__cat">
+      <article class="menu__cat tilt">
         <h3>طواجن الفخّار 🔥</h3>
         <p>تُطهى وتُقدَّم في الفخّار داخل الفرن — طبق الإشارة بصريّاً ومذاقيّاً.</p>
         <ul class="chips"><li>من الفرن</li></ul>
       </article>
-      <article class="menu__cat">
+      <article class="menu__cat tilt">
         <h3>صواني الفرن 🔥</h3>
         <p>صواني اللحم والدجاج والخضار، تُخبز بالبهارات حتى تتداخل النكهات.</p>
         <ul class="chips"><li>من الفرن</li></ul>
       </article>
-      <article class="menu__cat">
+      <article class="menu__cat tilt">
         <h3>صاج وفطاير 🔥</h3>
         <p>معجّنات الصاج الطازجة والفطائر المخبوزة أمام الضيف.</p>
         <ul class="chips"><li>من الفرن</li></ul>
       </article>
-      <article class="menu__cat">
+      <article class="menu__cat tilt">
         <h3>الأرزّ بالفرن 🔥</h3>
         <p>أطباق متنوّعة من الأرزّ المتبّل بأجود أنواع البهارات والطهي المتقَن، لتقدّم الطعم الأصيل والمذاق الغنيّ.</p>
         <ul class="chips"><li>من الفرن</li></ul>
       </article>
-      <article class="menu__cat">
+      <article class="menu__cat tilt">
         <h3>المقبّلات والسلطات</h3>
         <p>تشكيلة شهيّة من المقبّلات والسلطات الطازجة التي تفتح الشهيّة وتُكمل متعة الوجبة.</p>
         <ul class="chips"><li>حمّص متبل</li><li>كبدة بدبس الرمّان</li><li>خضار مشكّل</li><li>كبّة برغل</li></ul>
       </article>
-      <article class="menu__cat">
+      <article class="menu__cat tilt">
         <h3>المشاوي</h3>
         <p>تشكيلة مختارة من المشاوي المعدّة بنكهات غنيّة وطعم أصيل.</p>
       </article>
-      <article class="menu__cat">
+      <article class="menu__cat tilt">
         <h3>شاورما البيت</h3>
         <p>شاورما محضّرة على الطريقة البيتيّة.</p>
       </article>
-      <article class="menu__cat menu__cat--img">
+      <article class="menu__cat menu__cat--img tilt">
         <h3>مكرونات</h3>
         <p>تشكيلة غنيّة من أطباق المكرونة بصلصاتها اللذيذة ونكهاتها الفاخرة. ويمكن تقديمها بالفرن (جراتان).</p>
         <img src="assets/img/dish-pasta.jpg" alt="طبق مكرونة بصلصة الطماطم واللحم مع الريحان" loading="lazy">
       </article>
-      <article class="menu__cat menu__cat--img">
+      <article class="menu__cat menu__cat--img tilt">
         <h3>الحلويات</h3>
         <p>حلويات الزمن الجميل وحلويات عصريّة — ومنها ما يُخبز في الفرن.</p>
         <img src="assets/img/dish-cheesecake.jpg" alt="قطعة تشيز كيك بصوص الكراميل والمكسّرات" loading="lazy">
       </article>
-      <article class="menu__cat">
+      <article class="menu__cat tilt">
         <h3>المشروبات</h3>
         <p>مشروبات ساخنة وباردة، وعصائر طازجة، ومشروبات الزمن الجميل.</p>
       </article>
@@ -741,7 +845,7 @@
 <!-- ============================ لماذا موقعكم ============================ -->
 <section class="sec sec--accent" id="why-location">
   <div class="wrap">
-    <p class="eyebrow" data-reveal>٠٧ — القيمة المضافة</p>
+    <p class="eyebrow" data-reveal>٠٨ — القيمة المضافة</p>
     <h2 class="h2" data-split data-reveal>ماذا يكسب الموقع من «الزمن الجميل»؟</h2>
     <p class="sub" data-reveal>هذا أهمّ قسم في العرض — وكان غائباً تماماً عن النسخة الأولى.</p>
 
@@ -761,7 +865,7 @@
 <!-- ============================ الأرقام ============================ -->
 <section class="sec" id="numbers">
   <div class="wrap">
-    <p class="eyebrow" data-reveal>٠٨ — الأرقام والجدوى</p>
+    <p class="eyebrow" data-reveal>٠٩ — الأرقام والجدوى</p>
     <h2 class="h2" data-split data-reveal>الأرقام التي يسألها مالك الموقع</h2>
     <div class="callout callout--warn" data-reveal>
       <b>هذه الحقول تنتظر مدخلاتكم.</b> لم أختلق أرقاماً — رقم مُختلَق في عرض
@@ -792,7 +896,7 @@
 <!-- ============================ القدرة المالية والفريق ============================ -->
 <section class="sec sec--dark" id="capacity">
   <div class="wrap">
-    <p class="eyebrow eyebrow--light" data-reveal>٠٩ — الجدارة</p>
+    <p class="eyebrow eyebrow--light" data-reveal>١٠ — الجدارة</p>
     <h2 class="h2 h2--light" data-split data-reveal>القدرة المالية والفريق</h2>
     <p class="sub sub--light" data-reveal>سؤال مالك الموقع الأول ليس «ما فكرتكم؟» بل
     <strong>«هل تدفعون الإيجار بانتظام، وتبقون؟»</strong></p>
@@ -811,7 +915,7 @@
 <!-- ============================ خطة التنفيذ ============================ -->
 <section class="sec" id="plan">
   <div class="wrap">
-    <p class="eyebrow" data-reveal>١٠ — التنفيذ</p>
+    <p class="eyebrow" data-reveal>١١ — التنفيذ</p>
     <h2 class="h2" data-split data-reveal>من التسليم إلى الافتتاح</h2>
     <ol class="timeline" data-reveal>
       <li><span class="timeline__n">١</span><div><b>التعاقد والتراخيص</b><p>توقيع العقد، ورخصة البلدية، وموافقة الدفاع المدني على منظومة الفرن.</p><em data-fill>— المدّة</em></div></li>
@@ -869,7 +973,8 @@
   <p id="lbCap"></p>
 </div>
 
-<script src="assets/script.js?v=3"></script>
-<script src="assets/magic.js?v=3"></script>
+<script src="assets/script.js?v=4"></script>
+<script src="assets/magic.js?v=4"></script>
+<script src="assets/fx.js?v=4"></script>
 </body>
 </html>

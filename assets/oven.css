@@ -118,3 +118,47 @@
   .peel{opacity:0}
   .tagine{opacity:1}
 }
+
+/* ============================================================
+   موجة الحرارة + الجمر المتطاير
+   ============================================================ */
+.haze{animation:hazeBreath 4.6s ease-in-out infinite alternate;
+      transform-origin:50% 100%;transform-box:fill-box}
+@keyframes hazeBreath{
+  0%  {opacity:.5;transform:scaleY(.9)}
+  100%{opacity:.95;transform:scaleY(1.14)}
+}
+
+/* ---- شرارات تتصاعد من النار ---- */
+.sparks{
+  position:absolute;inset-inline:26%;inset-block-end:16%;
+  height:62%;pointer-events:none;overflow:visible;
+}
+.sparks i{
+  position:absolute;inset-block-end:0;
+  width:4px;height:4px;border-radius:50%;
+  background:#FFC247;
+  box-shadow:0 0 7px 2px rgba(255,150,50,.85);
+  opacity:0;
+}
+.sparks i:nth-child(1){left:12%;animation:spark 4.2s ease-out infinite .0s}
+.sparks i:nth-child(2){left:28%;animation:spark 3.4s ease-out infinite .7s}
+.sparks i:nth-child(3){left:44%;animation:spark 4.8s ease-out infinite 1.3s}
+.sparks i:nth-child(4){left:58%;animation:spark 3.1s ease-out infinite 2.0s}
+.sparks i:nth-child(5){left:72%;animation:spark 4.5s ease-out infinite 2.6s}
+.sparks i:nth-child(6){left:86%;animation:spark 3.8s ease-out infinite 3.2s}
+.sparks i:nth-child(7){left:20%;animation:spark 5.1s ease-out infinite 1.8s}
+.sparks i:nth-child(8){left:66%;animation:spark 4.0s ease-out infinite .35s}
+@keyframes spark{
+  0%  {opacity:0;transform:translate(0,0) scale(.5)}
+  10% {opacity:1}
+  55% {opacity:.9}
+  100%{opacity:0;transform:translate(var(--dx,14px),-240px) scale(.2)}
+}
+.sparks i:nth-child(odd){--dx:-18px}
+.sparks i:nth-child(3n){--dx:26px}
+
+@media (prefers-reduced-motion:reduce){
+  .haze,.sparks i{animation:none!important}
+  .sparks{display:none}
+}
