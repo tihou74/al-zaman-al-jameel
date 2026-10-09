@@ -14,7 +14,8 @@
   /* قائمة التشغيل — ضع الملفّات في assets/audio/
      الأسماء هنا وصفيّة؛ بدّلها بما يناسب ترخيصك. */
   var PLAYLIST = [
-    { file: "assets/audio/1414.mp3", title: "موسيقى الزمن الجميل" }
+    { file: "assets/audio/abdelhalim.mp3", title: "عبد الحليم" },
+    { file: "assets/audio/1414.mp3",       title: "موسيقى الزمن الجميل" }
   ];
 
   var TARGET_VOL = 0.32;      // خلفيّة هادئة لا تطغى على الحديث
