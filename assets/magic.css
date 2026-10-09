@@ -239,7 +239,7 @@
 @media (prefers-reduced-motion:reduce){
   .leader,.glow,.patina{display:none!important}
   .vinyl,.leader__sweep,.timedial__ring,.marquee__row,
-  .oven__embers,.oven__steam i,.leader__scratch{animation:none!important}
+  .leader__scratch{animation:none!important}
   .pola{transform:none}
   .h2--split .w{opacity:1;transform:none}
 }
