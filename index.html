@@ -14,6 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@200;300;400;500;600;700&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/magic.css">
 </head>
 <body>
 
@@ -75,7 +76,7 @@
 <section class="sec" id="concept">
   <div class="wrap">
     <p class="eyebrow" data-reveal>٠١ — الفكرة</p>
-    <h2 class="h2" data-reveal>ليس مجرّد مطعم، بل فرنٌ تلتفّ حوله الذكريات</h2>
+    <h2 class="h2" data-split data-reveal>ليس مجرّد مطعم، بل فرنٌ تلتفّ حوله الذكريات</h2>
     <div class="grid grid--2 grid--wide-first">
       <div class="prose" data-reveal>
         <p><strong>الزمن الجميل</strong> مطعم أفران: أغلب أطباقنا تُخبز في الفرن —
@@ -105,8 +106,47 @@
 <section class="sec sec--dark" id="oven">
   <div class="wrap">
     <p class="eyebrow eyebrow--light" data-reveal>٠٢ — قلب الفكرة</p>
-    <h2 class="h2 h2--light" data-reveal>الفرن المكشوف</h2>
+    <h2 class="h2 h2--light" data-split data-reveal>الفرن المكشوف</h2>
     <p class="sub sub--light" data-reveal>ما يميّزنا، وما يجب أن يطمئنّ عليه مالك الموقع — في قسم واحد.</p>
+
+    <!-- ===== الفرن التفاعلي ===== -->
+    <div class="ovenwrap" data-reveal style="margin-block-end:clamp(48px,7vw,86px)">
+      <div>
+        <div class="oven" id="oven3d">
+          <div class="oven__mouth">
+            <div class="oven__embers"></div>
+            <div class="oven__tray"></div>
+            <div class="oven__dish"></div>
+          </div>
+          <div class="oven__steam"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="oven__door">
+            <div class="oven__handle"></div>
+            <div class="oven__glass"></div>
+          </div>
+          <p class="oven__hint">اضغط لفتح الفرن</p>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:var(--f-display);font-size:clamp(1.5rem,3vw,2.2rem);color:var(--cream);margin:0 0 1rem">
+          الطبق يُخبز أمام الضيف
+        </h3>
+        <p style="color:rgba(244,234,218,.84);font-size:1.06rem;margin:0 0 1.2rem">
+          في المطاعم العادية يخرج الطعام من باب مغلق. عندنا، الفرن في الصالة:
+          الضيف يرى الفخّار يدخل، ويسمع الخبز، ويشمّ قبل أن يذوق.
+        </p>
+        <p style="color:rgba(244,234,218,.84);font-size:1.06rem;margin:0 0 1.6rem">
+          هذه ليست حركة تسويقيّة — بل <strong style="color:var(--st-mustard)">ثلاث حواسّ
+          تعمل قبل الطلب</strong>، وهي ما يرفع الفاتورة ويعيد الضيف.
+        </p>
+        <div class="vinyl" id="vinyl" title="موسيقى الزمن الجميل">
+          <div class="vinyl__label"><img src="assets/img/logo.png" alt="شعار الزمن الجميل على ملصق أسطوانة"></div>
+          <span class="vinyl__pin"></span>
+        </div>
+        <p style="text-align:center;font-size:.78rem;letter-spacing:.14em;color:var(--st-mustard);margin:1rem 0 0">
+          موسيقى الزمن الجميل — مرّر المؤشّر لإيقاف الأسطوانة
+        </p>
+      </div>
+    </div>
 
     <div class="grid grid--2" data-reveal>
       <div class="card card--dark">
@@ -146,11 +186,11 @@
 <section class="sec sec--dark" id="teaser" style="padding-block-start:0">
   <div class="wrap">
     <p class="eyebrow eyebrow--light" data-reveal>٠٣ — تشويقي</p>
-    <h2 class="h2 h2--light" data-reveal>ثلاثة إعلانات تشويقيّة</h2>
+    <h2 class="h2 h2--light" data-split data-reveal>ثلاثة إعلانات تشويقيّة</h2>
     <p class="sub sub--light" data-reveal>العرض أدناه يعمل الآن بالصور والحركة.
     وعند جهوز الفيديوهات الحقيقيّة، تُستبدل في مكانها دون تغيير في التصميم.</p>
 
-    <div class="teaser" id="teaser" data-reveal>
+    <div class="teaser" id="teaserPlayer" data-reveal>
       <div class="teaser__stage" id="stage"><!-- تُبنى بالسكربت --></div>
       <div class="teaser__grade"></div>
       <div class="teaser__grain"></div>
@@ -201,13 +241,23 @@
     </div>
   </div>
 </section>
-<hr class="stripes">
+<!-- ===== لافتة الأطباق المتحرّكة ===== -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__row">
+    <span>طواجن فخّار</span><span>صواني الفرن</span><span>صاج وفطاير</span>
+    <span>أرزّ بالفرن</span><span>كبّة برغل</span><span>كبدة بدبس الرمّان</span>
+    <span>حمّص متبّل</span><span>مشاوي البيت</span><span>شاورما البيت</span>
+    <span>طواجن فخّار</span><span>صواني الفرن</span><span>صاج وفطاير</span>
+    <span>أرزّ بالفرن</span><span>كبّة برغل</span><span>كبدة بدبس الرمّان</span>
+    <span>حمّص متبّل</span><span>مشاوي البيت</span><span>شاورما البيت</span>
+  </div>
+</div>
 
 <!-- ============================ الهويّة ============================ -->
 <section class="sec" id="brand">
   <div class="wrap">
     <p class="eyebrow" data-reveal>٠٤ — الهويّة</p>
-    <h2 class="h2" data-reveal>الشعار، والألوان، والنقشات</h2>
+    <h2 class="h2" data-split data-reveal>الشعار، والألوان، والنقشات</h2>
     <p class="sub" data-reveal>اللوحة اللونيّة والنقشات أدناه <strong>مستخرجة من هويّتكم
     الحالية نفسها</strong> — لم نستبدلها، بل نظّمناها ووسّعنا استخدامها.</p>
 
@@ -261,10 +311,30 @@
 <section class="sec sec--dark" id="experience">
   <div class="wrap">
     <p class="eyebrow eyebrow--light" data-reveal>٠٥ — التجربة</p>
-    <h2 class="h2 h2--light" data-reveal>تصوّر المكان</h2>
+    <h2 class="h2 h2--light" data-split data-reveal>تصوّر المكان</h2>
     <p class="sub sub--light" data-reveal>تصوّرات مبدئيّة للاتجاه البصري، وليست تصاميم تنفيذيّة نهائيّة.</p>
 
-    <div class="gallery" id="gallery" data-reveal>
+    <!-- ===== ألبوم البولارويد ===== -->
+    <div class="polas" data-reveal>
+      <figure class="pola">
+        <img src="assets/img/interior-02.jpg" alt="حائط صور مؤطّرة وكراسي مخمل وردي" loading="lazy">
+        <figcaption>حائط الذكريات</figcaption>
+      </figure>
+      <figure class="pola">
+        <img src="assets/img/brand-placemat.jpg" alt="مفرش أحمر مطرّز بشعار الزمن الجميل" loading="lazy">
+        <figcaption>المفرش المطرّز</figcaption>
+      </figure>
+      <figure class="pola">
+        <img src="assets/img/interior-06.jpg" alt="تفاصيل الديكور الداخلي" loading="lazy">
+        <figcaption>تفاصيل الطاولة</figcaption>
+      </figure>
+      <figure class="pola">
+        <img src="assets/img/icon-era.jpg" alt="بوستر بأسلوب البوب-آرت لأيقونة من الزمن الجميل" loading="lazy">
+        <figcaption>أيقونة الزمن</figcaption>
+      </figure>
+    </div>
+
+    <div class="gallery" id="gallery" data-reveal style="margin-block-start:clamp(32px,5vw,56px)">
       <figure class="gallery__item gallery__item--lg">
         <img src="assets/img/interior-01.jpg" alt="صالون عربي: عودان على الحائط، كنب مزهّر، أثاث خيزران، بلاط منقوش" loading="lazy">
         <figcaption>الصالة الرئيسية — طابع الصالون العربي</figcaption>
@@ -300,10 +370,10 @@
 </section>
 
 <!-- ============================ المنيو ============================ -->
-<section class="sec sec--pattern" id="menu">
+<section class="sec sec--pattern" id="menu" data-par="0.05">
   <div class="wrap">
     <p class="eyebrow" data-reveal>٠٦ — المنيو</p>
-    <h2 class="h2" data-reveal>المنيو مرتّب حول الفرن</h2>
+    <h2 class="h2" data-split data-reveal>المنيو مرتّب حول الفرن</h2>
     <p class="sub" data-reveal>أعدنا ترتيب الأقسام ليتقدّم ما يُخبز في الفرن —
     لأن هذا ما يميّزكم، وكان مدفوناً في منتصف المنيو.</p>
 
@@ -370,7 +440,7 @@
 <section class="sec sec--accent" id="why-location">
   <div class="wrap">
     <p class="eyebrow" data-reveal>٠٧ — القيمة المضافة</p>
-    <h2 class="h2" data-reveal>ماذا يكسب الموقع من «الزمن الجميل»؟</h2>
+    <h2 class="h2" data-split data-reveal>ماذا يكسب الموقع من «الزمن الجميل»؟</h2>
     <p class="sub" data-reveal>هذا أهمّ قسم في العرض — وكان غائباً تماماً عن النسخة الأولى.</p>
 
     <div class="value" data-reveal>
@@ -390,7 +460,7 @@
 <section class="sec" id="numbers">
   <div class="wrap">
     <p class="eyebrow" data-reveal>٠٨ — الأرقام والجدوى</p>
-    <h2 class="h2" data-reveal>الأرقام التي يسألها مالك الموقع</h2>
+    <h2 class="h2" data-split data-reveal>الأرقام التي يسألها مالك الموقع</h2>
     <div class="callout callout--warn" data-reveal>
       <b>هذه الحقول تنتظر مدخلاتكم.</b> لم أختلق أرقاماً — رقم مُختلَق في عرض
       لمالك موقع أخطر من فراغ، لأنه يُكتشف في أول سؤال. أعطوني الأرقام وأصوغها.
@@ -421,7 +491,7 @@
 <section class="sec sec--dark" id="capacity">
   <div class="wrap">
     <p class="eyebrow eyebrow--light" data-reveal>٠٩ — الجدارة</p>
-    <h2 class="h2 h2--light" data-reveal>القدرة المالية والفريق</h2>
+    <h2 class="h2 h2--light" data-split data-reveal>القدرة المالية والفريق</h2>
     <p class="sub sub--light" data-reveal>سؤال مالك الموقع الأول ليس «ما فكرتكم؟» بل
     <strong>«هل تدفعون الإيجار بانتظام، وتبقون؟»</strong></p>
 
@@ -440,7 +510,7 @@
 <section class="sec" id="plan">
   <div class="wrap">
     <p class="eyebrow" data-reveal>١٠ — التنفيذ</p>
-    <h2 class="h2" data-reveal>من التسليم إلى الافتتاح</h2>
+    <h2 class="h2" data-split data-reveal>من التسليم إلى الافتتاح</h2>
     <ol class="timeline" data-reveal>
       <li><span class="timeline__n">١</span><div><b>التعاقد والتراخيص</b><p>توقيع العقد، ورخصة البلدية، وموافقة الدفاع المدني على منظومة الفرن.</p><em data-fill>— المدّة</em></div></li>
       <li><span class="timeline__n">٢</span><div><b>التصميم التنفيذي</b><p>المخططات المعماريّة والميكانيكيّة — بما فيها مسار المدخنة والشفّاط — واعتمادها من إدارة الموقع.</p><em data-fill>— المدّة</em></div></li>
@@ -498,5 +568,6 @@
 </div>
 
 <script src="assets/script.js"></script>
+<script src="assets/magic.js"></script>
 </body>
 </html>

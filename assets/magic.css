@@ -1,0 +1,343 @@
+/* ============================================================
+   الزمن الجميل — اللمسات الإبداعية
+   كل لمسة مشتقّة من روح العلامة: السينما القديمة، الفونوغراف،
+   صور البولارويد، والفرن. لا حركة بلا معنى.
+   ============================================================ */
+
+/* ============================================================
+   ١) مقدّمة شريط السينما — أول انطباع
+   شريط فيلم قديم: عدّ تنازلي، خدوش، ثم الشعار يَظهر كصورة تُحمَّض
+   ============================================================ */
+.leader{
+  position:fixed;inset:0;z-index:9999;
+  background:#17110D;display:grid;place-items:center;
+  overflow:hidden;cursor:pointer;
+}
+.leader.is-gone{
+  animation:leaderOut 1.1s var(--ease) forwards;pointer-events:none;
+}
+@keyframes leaderOut{
+  to{opacity:0;transform:scale(1.12);filter:blur(12px)}
+}
+
+/* دائرة العدّ ومسّاحة الزمن */
+.leader__dial{
+  position:relative;width:min(58vmin,340px);aspect-ratio:1;
+  border-radius:50%;display:grid;place-items:center;
+  border:2px solid rgba(244,234,218,.22);
+}
+.leader__dial::before,.leader__dial::after{
+  content:"";position:absolute;background:rgba(244,234,218,.18);
+}
+.leader__dial::before{inset-inline:0;height:1px}
+.leader__dial::after{inset-block:0;width:1px}
+
+/* الممسحة الدوّارة */
+.leader__sweep{
+  position:absolute;inset:0;border-radius:50%;
+  background:conic-gradient(from 0deg,rgba(244,234,218,.26) 0 8%,transparent 8% 100%);
+  animation:sweep 1s linear infinite;
+}
+@keyframes sweep{to{transform:rotate(360deg)}}
+
+.leader__num{
+  font-family:var(--f-display);font-size:min(26vmin,150px);
+  color:var(--cream);line-height:1;position:relative;z-index:2;
+  text-shadow:0 0 50px rgba(212,162,76,.45);
+}
+
+.leader__logo{
+  position:absolute;width:min(46vmin,280px);opacity:0;
+  filter:sepia(1) blur(14px) contrast(.6);
+}
+.leader__logo.is-dev{animation:develop 1.6s var(--ease) forwards}
+@keyframes develop{
+  0%  {opacity:0;filter:sepia(1) blur(16px) contrast(.5) brightness(1.5)}
+  55% {opacity:1;filter:sepia(.7) blur(5px) contrast(.85)}
+  100%{opacity:1;filter:sepia(0) blur(0) contrast(1)}
+}
+
+/* خدوش الفيلم */
+.leader__scratch{
+  position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background:
+    repeating-linear-gradient(90deg,transparent 0 37px,rgba(244,234,218,.05) 37px 38px),
+    repeating-linear-gradient(90deg,transparent 0 113px,rgba(0,0,0,.4) 113px 115px);
+  animation:scratch .28s steps(3) infinite;
+}
+@keyframes scratch{
+  0%{transform:translateX(0)}50%{transform:translateX(-11px)}100%{transform:translateX(6px)}
+}
+.leader__skip{
+  position:absolute;inset-block-end:30px;inset-inline:0;text-align:center;
+  color:rgba(244,234,218,.5);font-size:.8rem;letter-spacing:.2em;
+}
+
+/* ============================================================
+   ٢) آلة الزمن — السنة تعود للخلف مع التمرير
+   ============================================================ */
+.timedial{
+  position:fixed;z-index:60;
+  inset-block-end:22px;inset-inline-start:22px;
+  display:flex;align-items:center;gap:.7rem;
+  padding:.55rem .95rem .55rem .6rem;
+  background:rgba(23,17,13,.82);backdrop-filter:blur(12px);
+  border:1px solid rgba(212,162,76,.3);border-radius:100px;
+  opacity:0;transform:translateY(16px);
+  transition:opacity .6s var(--ease),transform .6s var(--ease);
+  pointer-events:none;
+}
+.timedial.is-on{opacity:1;transform:none}
+@media(max-width:620px){.timedial{inset-block-end:14px;inset-inline-start:14px;padding:.4rem .8rem .4rem .45rem}}
+
+.timedial__ring{
+  width:34px;height:34px;flex:none;border-radius:50%;
+  border:2px solid rgba(212,162,76,.3);
+  border-block-start-color:var(--st-mustard);
+  animation:sweep 3.6s linear infinite;
+}
+.timedial__y{
+  font-family:var(--f-display);font-size:1.26rem;color:var(--st-mustard);
+  line-height:1;font-variant-numeric:tabular-nums;min-width:4.2ch;text-align:center;
+}
+.timedial__l{font-size:.6rem;letter-spacing:.17em;color:rgba(244,234,218,.55);line-height:1.5}
+
+/* تدرّج السيبيا يزداد كلّما رجعنا بالزمن */
+.patina{
+  position:fixed;inset:0;z-index:55;pointer-events:none;
+  background:radial-gradient(130% 110% at 50% 40%,transparent 38%,rgba(74,59,42,.5) 100%);
+  mix-blend-mode:multiply;opacity:0;transition:opacity .5s linear;
+}
+
+/* ============================================================
+   ٣) الفرن التفاعلي — قلب الفكرة، يُفتح فعلاً
+   ============================================================ */
+.ovenwrap{display:grid;gap:clamp(22px,4vw,48px);align-items:center;grid-template-columns:1fr}
+@media(min-width:900px){.ovenwrap{grid-template-columns:1fr 1fr}}
+
+.oven{
+  position:relative;aspect-ratio:1/.92;max-width:460px;margin-inline:auto;width:100%;
+  border-radius:20px;cursor:pointer;
+  background:linear-gradient(180deg,#3A2B20,#241A13);
+  box-shadow:0 26px 70px rgba(0,0,0,.5),inset 0 2px 0 rgba(244,234,218,.08);
+  padding:7%;perspective:1100px;
+}
+/* قوام الطوب */
+.oven::before{
+  content:"";position:absolute;inset:0;border-radius:20px;
+  background:url("img/pattern-velvet-gold.jpg") repeat;background-size:120px;
+  opacity:.14;mix-blend-mode:overlay;pointer-events:none;
+}
+
+.oven__mouth{
+  position:relative;width:100%;height:100%;
+  border-radius:50% 50% 14px 14px / 34% 34% 14px 14px;
+  background:radial-gradient(120% 130% at 50% 100%,#8E3A12,#2A1408 70%);
+  overflow:hidden;box-shadow:inset 0 0 50px rgba(0,0,0,.8);
+}
+/* جمر متوهّج */
+.oven__embers{
+  position:absolute;inset-block-end:0;inset-inline:0;height:34%;
+  background:linear-gradient(to top,#FF8A3D,#C0392B 45%,transparent);
+  filter:blur(9px);opacity:.75;
+  animation:ember 3.4s ease-in-out infinite alternate;
+}
+@keyframes ember{
+  from{opacity:.55;transform:scaleY(.9)}
+  to  {opacity:.92;transform:scaleY(1.1)}
+}
+
+/* الصينية والطبق داخل الفرن */
+.oven__tray{
+  position:absolute;inset-inline:16%;inset-block-end:16%;
+  height:12%;border-radius:50%;
+  background:radial-gradient(circle,#4A3B2A,#2A1F16);
+  box-shadow:0 8px 22px rgba(0,0,0,.6);
+}
+.oven__dish{
+  position:absolute;inset-inline:26%;inset-block-end:20%;
+  aspect-ratio:1/.62;border-radius:50% 50% 46% 46%;
+  background:
+    radial-gradient(60% 70% at 50% 28%,#E8B06A,#B5712F 60%,#7B4A1C);
+  box-shadow:0 0 30px rgba(255,150,60,.5),inset 0 -6px 14px rgba(0,0,0,.35);
+}
+
+/* باب الفرن */
+.oven__door{
+  position:absolute;inset:7%;border-radius:16px;
+  background:linear-gradient(170deg,#4A3B2A,#2A1F16 60%,#1A120C);
+  border:2px solid rgba(212,162,76,.28);
+  transform-origin:bottom center;
+  transform:rotateX(0deg);
+  transition:transform 1.25s var(--ease),box-shadow .8s;
+  box-shadow:0 10px 30px rgba(0,0,0,.45);
+  display:grid;place-items:center;
+  backface-visibility:hidden;
+}
+.oven.is-open .oven__door{transform:rotateX(-104deg);box-shadow:0 30px 50px rgba(0,0,0,.6)}
+/* زجاج الباب */
+.oven__glass{
+  width:72%;height:54%;border-radius:10px;
+  background:linear-gradient(150deg,rgba(255,170,90,.26),rgba(0,0,0,.5));
+  border:1.5px solid rgba(212,162,76,.3);
+  box-shadow:inset 0 0 26px rgba(255,140,50,.3);
+}
+.oven__handle{
+  position:absolute;inset-block-start:11%;inset-inline:16%;
+  height:11px;border-radius:9px;
+  background:linear-gradient(180deg,var(--st-mustard),#8A6428);
+  box-shadow:0 3px 9px rgba(0,0,0,.5);
+}
+
+/* بخار يتصاعد عند الفتح */
+.oven__steam{position:absolute;inset-inline:0;inset-block-start:-6%;height:40%;pointer-events:none}
+.oven__steam i{
+  position:absolute;inset-block-end:0;
+  width:30px;height:30px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.5),transparent 70%);
+  filter:blur(7px);opacity:0;
+}
+.oven.is-open .oven__steam i{animation:steam 3.6s ease-out infinite}
+.oven__steam i:nth-child(1){inset-inline-start:26%;animation-delay:0s}
+.oven__steam i:nth-child(2){inset-inline-start:42%;animation-delay:.5s}
+.oven__steam i:nth-child(3){inset-inline-start:56%;animation-delay:1s}
+.oven__steam i:nth-child(4){inset-inline-start:36%;animation-delay:1.6s}
+.oven__steam i:nth-child(5){inset-inline-start:64%;animation-delay:2.2s}
+@keyframes steam{
+  0%  {opacity:0;transform:translateY(10px) scale(.6)}
+  25% {opacity:.8}
+  100%{opacity:0;transform:translateY(-130px) scale(2.1)}
+}
+
+.oven__hint{
+  position:absolute;inset-block-end:-34px;inset-inline:0;text-align:center;
+  font-size:.78rem;letter-spacing:.14em;color:var(--st-mustard);
+  transition:opacity .4s;
+}
+.oven.is-open .oven__hint{opacity:.35}
+
+/* ============================================================
+   ٤) الفونوغراف — قرص يدور وشعارك هو الملصق
+   ============================================================ */
+.vinyl{
+  position:relative;width:min(230px,56vw);aspect-ratio:1;margin-inline:auto;
+  border-radius:50%;
+  background:
+    repeating-radial-gradient(circle at 50% 50%,
+      #17110D 0 2px,#221A14 2px 4px),
+    #17110D;
+  box-shadow:0 22px 56px rgba(0,0,0,.5),inset 0 0 40px rgba(0,0,0,.7);
+  display:grid;place-items:center;
+  animation:spin 6s linear infinite;
+}
+.vinyl.is-paused{animation-play-state:paused}
+@keyframes spin{to{transform:rotate(360deg)}}
+.vinyl::after{  /* وميض الضوء على الأسطوانة */
+  content:"";position:absolute;inset:0;border-radius:50%;
+  background:conic-gradient(from 210deg,transparent 0 42%,rgba(244,234,218,.1) 50%,transparent 58% 100%);
+}
+.vinyl__label{
+  width:42%;aspect-ratio:1;border-radius:50%;overflow:hidden;
+  box-shadow:0 0 0 3px rgba(212,162,76,.35),0 6px 18px rgba(0,0,0,.5);
+  position:relative;z-index:2;background:var(--cream);
+}
+.vinyl__label img{width:100%;height:100%;object-fit:cover}
+.vinyl__pin{
+  position:absolute;width:5%;aspect-ratio:1;border-radius:50%;
+  background:#0E0A07;z-index:3;
+}
+
+/* ============================================================
+   ٥) معرض البولارويد — صور مائلة كأنها على الطاولة
+   ============================================================ */
+.polas{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:clamp(16px,3vw,34px);padding-block:1rem;
+}
+.pola{
+  background:#FBF6EC;padding:11px 11px 46px;border-radius:3px;
+  box-shadow:0 14px 34px rgba(23,17,13,.3);
+  transform:rotate(var(--rot,-2.5deg));
+  transition:transform .55s var(--ease),box-shadow .55s var(--ease);
+  cursor:zoom-in;margin:0;
+}
+.pola:nth-child(2n){--rot:2.2deg}
+.pola:nth-child(3n){--rot:-1.4deg}
+.pola:nth-child(4n){--rot:3.1deg}
+.pola:hover{
+  transform:rotate(0) translateY(-10px) scale(1.035);
+  box-shadow:0 26px 56px rgba(23,17,13,.42);z-index:3;
+}
+.pola img{
+  width:100%;aspect-ratio:1;object-fit:cover;border-radius:2px;
+  filter:sepia(.18) saturate(1.05) contrast(1.02);
+  transition:filter .55s;
+}
+.pola:hover img{filter:sepia(0) saturate(1.12)}
+.pola figcaption{
+  font-family:var(--f-display);font-size:.95rem;color:#3A2B20;
+  text-align:center;padding-block-start:.8rem;
+}
+
+/* ============================================================
+   ٦) شريط أسماء الأطباق — لافتة سينما متحرّكة
+   ============================================================ */
+.marquee{
+  position:relative;overflow:hidden;
+  background:var(--navy-deep);
+  border-block:3px solid rgba(212,162,76,.3);
+  padding-block:.9rem;
+}
+.marquee__row{display:flex;gap:0;width:max-content;animation:march 34s linear infinite}
+.marquee:hover .marquee__row{animation-play-state:paused}
+@keyframes march{to{transform:translateX(50%)}}
+.marquee span{
+  font-family:var(--f-display);font-size:clamp(1.1rem,2.4vw,1.8rem);
+  color:var(--cream);padding-inline:1.5rem;white-space:nowrap;display:flex;
+  align-items:center;gap:1.5rem;
+}
+.marquee span::after{
+  content:"";width:7px;height:7px;border-radius:50%;background:var(--st-mustard);flex:none;
+}
+
+/* ============================================================
+   ٧) وهج الفرن يتبع المؤشّر
+   ============================================================ */
+.glow{
+  position:fixed;z-index:1;pointer-events:none;
+  width:440px;height:440px;border-radius:50%;
+  translate:-50% -50%;opacity:0;
+  background:radial-gradient(circle,rgba(255,150,60,.13),transparent 66%);
+  transition:opacity .7s;
+}
+.glow.is-on{opacity:1}
+
+/* ============================================================
+   ٨) أزرار مغناطيسيّة + كشف الحروف
+   ============================================================ */
+.btn{will-change:transform}
+
+.h2--split .w{
+  display:inline-block;opacity:0;transform:translateY(26px) rotate(3deg);
+  transition:opacity .7s var(--ease),transform .7s var(--ease);
+}
+.h2--split.is-in .w{opacity:1;transform:none}
+
+/* ============================================================
+   احترام تقليل الحركة
+   ============================================================ */
+@media (prefers-reduced-motion:reduce){
+  .leader,.glow,.patina{display:none!important}
+  .vinyl,.leader__sweep,.timedial__ring,.marquee__row,
+  .oven__embers,.oven__steam i,.leader__scratch{animation:none!important}
+  .pola{transform:none}
+  .h2--split .w{opacity:1;transform:none}
+}
+
+/* قائمة الامتثال داخل القسم الداكن */
+.sec--dark .checks li{
+  background:rgba(244,234,218,.07);
+  border:1px solid rgba(244,234,218,.13);
+  color:rgba(244,234,218,.84);
+}
+.sec--dark .checks li::before{background:var(--st-mustard);color:#17110D}
