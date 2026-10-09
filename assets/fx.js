@@ -115,27 +115,47 @@
   function walkThrough() {
     var wrap = document.querySelector(".walk");
     if (!wrap || reduced) return;
+    var sticky = wrap.querySelector(".walk__sticky");
     var rail = wrap.querySelector(".walk__rail");
     var prog = wrap.querySelector(".walk__prog i");
-    if (!rail) return;
+    if (!rail || !sticky) return;
 
+    var cards = [].slice.call(rail.querySelectorAll(".walk__card"));
     var raf = null;
+
     function run() {
       var b = wrap.getBoundingClientRect();
       var total = wrap.offsetHeight - window.innerHeight;
       var p = total > 0 ? Math.min(1, Math.max(0, -b.top / total)) : 0;
-      var dist = rail.scrollWidth - window.innerWidth + window.innerWidth * 0.12;
-      // RTL: نتحرّك إلى اليسار بقيمة سالبة
-      rail.style.transform = "translateX(" + (-p * Math.max(0, dist)) + "px)";
+
+      /* الصفحة RTL: المحتوى الزائد يمتدّ إلى اليسار، فالكشف عنه
+         يتطلّب تحريك الشريط إلى اليمين — أي قيمة موجبة.
+         (كان سالباً فكان يُخفي المحتوى بدل أن يكشفه.) */
+      var dist = Math.max(0, rail.scrollWidth - sticky.clientWidth);
+      rail.style.transform = "translateX(" + (p * dist).toFixed(1) + "px)";
+
       if (prog) prog.style.width = (p * 100).toFixed(1) + "%";
+
+      // إضاءة البطاقة الأقرب لمنتصف الشاشة
+      var mid = window.innerWidth / 2, best = null, bestD = Infinity;
+      cards.forEach(function (c) {
+        var r = c.getBoundingClientRect();
+        var d = Math.abs(r.left + r.width / 2 - mid);
+        if (d < bestD) { bestD = d; best = c; }
+      });
+      cards.forEach(function (c) { c.classList.toggle("is-focus", c === best); });
+
       raf = null;
     }
-    window.addEventListener("scroll", function () {
-      if (!raf) raf = requestAnimationFrame(run);
-    }, { passive: true });
-    window.addEventListener("resize", function () {
-      if (!raf) raf = requestAnimationFrame(run);
-    }, { passive: true });
+
+    function kick() { if (!raf) raf = requestAnimationFrame(run); }
+    window.addEventListener("scroll", kick, { passive: true });
+    window.addEventListener("resize", kick, { passive: true });
+    // بعد تحميل الصور تتغيّر الأبعاد، فنعيد الحساب
+    window.addEventListener("load", kick);
+    rail.querySelectorAll("img").forEach(function (im) {
+      im.addEventListener("load", kick);
+    });
     run();
   }
 
