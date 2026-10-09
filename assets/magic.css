@@ -115,106 +115,16 @@
 .ovenwrap{display:grid;gap:clamp(22px,4vw,48px);align-items:center;grid-template-columns:1fr}
 @media(min-width:900px){.ovenwrap{grid-template-columns:1fr 1fr}}
 
-.oven{
-  position:relative;aspect-ratio:1/.92;max-width:460px;margin-inline:auto;width:100%;
-  border-radius:20px;cursor:pointer;
-  background:linear-gradient(180deg,#3A2B20,#241A13);
-  box-shadow:0 26px 70px rgba(0,0,0,.5),inset 0 2px 0 rgba(244,234,218,.08);
-  padding:7%;perspective:1100px;
-}
 /* قوام الطوب */
-.oven::before{
-  content:"";position:absolute;inset:0;border-radius:20px;
-  background:url("img/pattern-velvet-gold.jpg") repeat;background-size:120px;
-  opacity:.14;mix-blend-mode:overlay;pointer-events:none;
-}
 
-.oven__mouth{
-  position:relative;width:100%;height:100%;
-  border-radius:50% 50% 14px 14px / 34% 34% 14px 14px;
-  background:radial-gradient(120% 130% at 50% 100%,#8E3A12,#2A1408 70%);
-  overflow:hidden;box-shadow:inset 0 0 50px rgba(0,0,0,.8);
-}
 /* جمر متوهّج */
-.oven__embers{
-  position:absolute;inset-block-end:0;inset-inline:0;height:34%;
-  background:linear-gradient(to top,#FF8A3D,#C0392B 45%,transparent);
-  filter:blur(9px);opacity:.75;
-  animation:ember 3.4s ease-in-out infinite alternate;
-}
-@keyframes ember{
-  from{opacity:.55;transform:scaleY(.9)}
-  to  {opacity:.92;transform:scaleY(1.1)}
-}
 
 /* الصينية والطبق داخل الفرن */
-.oven__tray{
-  position:absolute;inset-inline:16%;inset-block-end:16%;
-  height:12%;border-radius:50%;
-  background:radial-gradient(circle,#4A3B2A,#2A1F16);
-  box-shadow:0 8px 22px rgba(0,0,0,.6);
-}
-.oven__dish{
-  position:absolute;inset-inline:26%;inset-block-end:20%;
-  aspect-ratio:1/.62;border-radius:50% 50% 46% 46%;
-  background:
-    radial-gradient(60% 70% at 50% 28%,#E8B06A,#B5712F 60%,#7B4A1C);
-  box-shadow:0 0 30px rgba(255,150,60,.5),inset 0 -6px 14px rgba(0,0,0,.35);
-}
 
 /* باب الفرن */
-.oven__door{
-  position:absolute;inset:7%;border-radius:16px;
-  background:linear-gradient(170deg,#4A3B2A,#2A1F16 60%,#1A120C);
-  border:2px solid rgba(212,162,76,.28);
-  transform-origin:bottom center;
-  transform:rotateX(0deg);
-  transition:transform 1.25s var(--ease),box-shadow .8s;
-  box-shadow:0 10px 30px rgba(0,0,0,.45);
-  display:grid;place-items:center;
-  backface-visibility:hidden;
-}
-.oven.is-open .oven__door{transform:rotateX(-104deg);box-shadow:0 30px 50px rgba(0,0,0,.6)}
 /* زجاج الباب */
-.oven__glass{
-  width:72%;height:54%;border-radius:10px;
-  background:linear-gradient(150deg,rgba(255,170,90,.26),rgba(0,0,0,.5));
-  border:1.5px solid rgba(212,162,76,.3);
-  box-shadow:inset 0 0 26px rgba(255,140,50,.3);
-}
-.oven__handle{
-  position:absolute;inset-block-start:11%;inset-inline:16%;
-  height:11px;border-radius:9px;
-  background:linear-gradient(180deg,var(--st-mustard),#8A6428);
-  box-shadow:0 3px 9px rgba(0,0,0,.5);
-}
 
 /* بخار يتصاعد عند الفتح */
-.oven__steam{position:absolute;inset-inline:0;inset-block-start:-6%;height:40%;pointer-events:none}
-.oven__steam i{
-  position:absolute;inset-block-end:0;
-  width:30px;height:30px;border-radius:50%;
-  background:radial-gradient(circle,rgba(255,255,255,.5),transparent 70%);
-  filter:blur(7px);opacity:0;
-}
-.oven.is-open .oven__steam i{animation:steam 3.6s ease-out infinite}
-.oven__steam i:nth-child(1){inset-inline-start:26%;animation-delay:0s}
-.oven__steam i:nth-child(2){inset-inline-start:42%;animation-delay:.5s}
-.oven__steam i:nth-child(3){inset-inline-start:56%;animation-delay:1s}
-.oven__steam i:nth-child(4){inset-inline-start:36%;animation-delay:1.6s}
-.oven__steam i:nth-child(5){inset-inline-start:64%;animation-delay:2.2s}
-@keyframes steam{
-  0%  {opacity:0;transform:translateY(10px) scale(.6)}
-  25% {opacity:.8}
-  100%{opacity:0;transform:translateY(-130px) scale(2.1)}
-}
-
-.oven__hint{
-  position:absolute;inset-block-end:-34px;inset-inline:0;text-align:center;
-  font-size:.78rem;letter-spacing:.14em;color:var(--st-mustard);
-  transition:opacity .4s;
-}
-.oven.is-open .oven__hint{opacity:.35}
 
 /* ============================================================
    ٤) الفونوغراف — قرص يدور وشعارك هو الملصق

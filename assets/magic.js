@@ -123,39 +123,56 @@
   /* ============================================================
      ٣) الفرن التفاعلي
      ============================================================ */
-  function ovenDoor() {
-    var oven = document.getElementById("oven3d");
-    if (!oven) return;
+  function stoneOven() {
+    var furn = document.getElementById("furn");
+    if (!furn) return;
+    var hint = document.getElementById("furnHint");
+    var busy = false;
 
-    oven.setAttribute("role", "button");
-    oven.setAttribute("tabindex", "0");
-    oven.setAttribute("aria-label", "افتح باب الفرن أو أغلقه");
+    function setHint(t) { if (hint) hint.textContent = t; }
 
-    function toggle() {
-      var open = oven.classList.toggle("is-open");
-      oven.setAttribute("aria-pressed", open ? "true" : "false");
-      var hint = oven.querySelector(".oven__hint");
-      if (hint) hint.textContent = open ? "اضغط للإغلاق" : "اضغط لفتح الفرن";
+    /* دورة الخَبز: المجرفة تدخل بالرغيف، تتركه، ثم تخرج
+       وبعدها يظهر الطاجن ويتصاعد البخار. */
+    function bake() {
+      if (busy) return;
+      busy = true;
+      furn.classList.remove("is-baked");
+      furn.classList.add("is-baking");
+      setHint("الصينيّة في الفرن…");
+
+      // بعد أن تترك المجرفة الحِمل (منتصف الحركة)
+      setTimeout(function () { furn.classList.add("is-baked"); }, 1900);
+
+      // انتهاء خروج المجرفة
+      setTimeout(function () {
+        furn.classList.remove("is-baking");
+        setHint("جاهز 🔥 — اضغط لإعادة الخَبز");
+        busy = false;
+      }, 3250);
     }
 
-    oven.addEventListener("click", toggle);
-    oven.addEventListener("keydown", function (e) {
-      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); }
+    if (reduced) {
+      furn.classList.add("is-baked");
+      setHint("فرن الزمن الجميل");
+      return;
+    }
+
+    furn.addEventListener("click", bake);
+    furn.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); bake(); }
     });
 
-    // يُفتح تلقائياً عند الظهور — المشهد هو المقصود
-    if (!reduced && "IntersectionObserver" in window) {
-      var done = false;
+    // يبدأ تلقائياً عند الوصول إليه — المشهد هو المقصود
+    if ("IntersectionObserver" in window) {
+      var once = false;
       new IntersectionObserver(function (entries) {
         entries.forEach(function (en) {
-          if (en.isIntersecting && !done) {
-            done = true;
-            setTimeout(function () {
-              if (!oven.classList.contains("is-open")) toggle();
-            }, 650);
+          if (en.isIntersecting && !once) {
+            once = true;
+            setTimeout(bake, 700);
           }
         });
-      }, { threshold: 0.45 }).observe(oven);
+      }, { threshold: 0.4 }).observe(furn);
     }
   }
 
@@ -276,7 +293,7 @@
   /* ---------------------------------------------- التشغيل */
   function boot() {
     timeMachine();
-    ovenDoor();
+    stoneOven();
     vinyl();
     cursorGlow();
     magneticButtons();
