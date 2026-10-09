@@ -1,0 +1,268 @@
+/* ============================================================
+   الزمن الجميل — البواسري والكورنيش الذهبي
+   ------------------------------------------------------------
+   ألوان مستخرجة من لقطتَي العميل:
+     ١) جدار أخضر بزخارف ذهبيّة · كورنيش مذهّب · حشوات عاجيّة
+     ٢) ورق جدران دمشقي أزرق على أرضيّة غريج + أحمر الشعار
+
+   ⚠ النقشات هنا **مولّدة بـCSS بالكامل** ولا تنسخ العمل الفنّي
+     في اللقطتين. الألوان غير محميّة، أما الزخرفة المنقوشة
+     فعملٌ فنّي لصاحبه — فوُلّدت أشكال هندسيّة بديلة.
+
+   يُحمَّل بعد palette.css ليتجاوز إيقاع الأقسام.
+   ============================================================ */
+
+:root{
+  /* ===== من اللقطة ١: الجدار الأخضر العلوي ===== */
+  --forest:          #3C4A2E;   /* أخضر الحائط — أعمق وأكثر خضرة من الزيتوني */
+  --forest-deep:     #2E3A22;
+  --forest-soft:     #4A5A38;
+
+  /* ===== من اللقطة ١: الكورنيش المذهّب ===== */
+  --cornice:         #B89A5A;   /* ذهبي الكورنيش الأساس */
+  --cornice-hi:      #F0E3BC;   /* أعلى البروز — ضوء */
+  --cornice-mid:     #D9C48E;
+  --cornice-lo:      #6E5A2A;   /* أسفل البروز — ظلّ */
+  --cornice-dark:    #46381A;
+
+  /* ===== من اللقطة ١: الحشوات العاجيّة (البواسري) ===== */
+  --boiserie:        #EFE6D4;   /* عاج الحشوة */
+  --boiserie-shade:  #E0D3B9;   /* غائر الحشوة */
+  --boiserie-line:   #C9B795;   /* خطّ الإطار المحفور */
+  --boiserie-hi:     #FBF6EA;   /* حرف الإطار المضيء */
+  --medallion:       #8A93A0;   /* رمادي أزرق قلب الميدالية */
+  --paper-ivory:     #F0EADC;   /* ورق فاتح */
+
+  /* ===== من اللقطة ٢: الدمشقي الأزرق ===== */
+  --damask-navy:     #2F4F86;
+  --damask-blue:     #4A6FA5;
+  --damask-mid:      #8FA8C8;
+  --damask-pale:     #B9C8DC;
+  --wallpaper-greige:#D5CCBA;   /* أرضيّة ورق الجدران */
+
+  /* ===== من اللقطة ٢: أحمر الشعار الفعلي ===== */
+  --logo-crimson:    #C8202E;   /* أصفى وأنقى من #C0392B */
+  --logo-crimson-dp: #9B1623;
+}
+
+/* ============================================================
+   ١ · الكورنيش المذهّب — شريط بارز قابل لإعادة الاستخدام
+   حبّات متعاقبة + أسنان + بروز بالضوء والظلّ. هندسي خالص.
+   ============================================================ */
+.cornice{
+  height:19px;border:0;margin:0;display:block;
+  background-color:var(--cornice);
+  background-image:
+    /* وهج أعلى الحبّة */
+    radial-gradient(circle at 50% 44%,
+      rgba(255,247,222,.9) 2px, rgba(255,247,222,0) 2.5px),
+    /* ظلّ محيط الحبّة */
+    radial-gradient(circle at 50% 46%,
+      rgba(70,56,26,.5) 3.2px, rgba(70,56,26,0) 3.7px),
+    /* أسنان رفيعة بين الحبّات */
+    repeating-linear-gradient(90deg,
+      rgba(110,90,42,.55) 0 2px, rgba(110,90,42,0) 2px 11px),
+    /* البروز: ضوء أعلى ثم ظلّ أسفل */
+    linear-gradient(180deg,
+      var(--cornice-hi)   0,   var(--cornice-hi)   2px,
+      var(--cornice-mid)  2px, var(--cornice-mid)  6px,
+      var(--cornice)      6px, var(--cornice)      12px,
+      var(--cornice-lo)   12px,var(--cornice-lo)   16px,
+      var(--cornice-dark) 16px,var(--cornice-dark) 100%);
+  background-size:22px 100%, 22px 100%, 22px 100%, 100% 100%;
+  background-position:0 0, 0 0, 11px 0, 0 0;
+  background-repeat:repeat-x,repeat-x,repeat-x,no-repeat;
+}
+.cornice--thin{height:12px;background-size:16px 100%,16px 100%,16px 100%,100% 100%}
+
+/* ============================================================
+   ٢ · قسم التواصل: جدار حشوات عاجيّة بكورنيش علوي وسفلي
+   ------------------------------------------------------------
+   هذا يُصلح أيضاً انكسار إيقاع النهاية: كان الذيل ثلاثة أسطح
+   غامقة متتالية (يونيفورم كحلي ← تواصل زيتوني ← تذييل زيتوني)
+   وآخِران بنفس المعالجة. الآن: غامق ← عاجي فاتح ← أخضر غامق.
+   ============================================================ */
+#contact{
+  background-color:var(--boiserie)!important;
+  background-image:
+    /* ميدالية في **وسط** الحشوة: مركز البلاطة = ١٠٩×١١٨ من أصل ٢١٨×٢٣٦ */
+    radial-gradient(circle at 50% 50%,
+      rgba(184,154,90,.58) 0 3.8px, rgba(184,154,90,0) 4.6px),
+    radial-gradient(circle at 50% 50%,
+      rgba(138,147,160,.52) 0 2px, rgba(138,147,160,0) 2.5px),
+    /* الإطار الرأسي: حرف مضيء ← أخدود ← غائر ← حرف داخلي */
+    repeating-linear-gradient(90deg,
+      rgba(251,246,234,.95) 0 2px,
+      rgba(172,152,118,.9)  2px 4px,
+      rgba(222,208,180,.8)  4px 14px,
+      rgba(251,246,234,.92) 14px 16px,
+      rgba(0,0,0,0)         16px 218px),
+    /* الإطار الأفقي: نفس البنية فتُقفل الحشوة من جهاتها الأربع */
+    repeating-linear-gradient(180deg,
+      rgba(251,246,234,.95) 0 2px,
+      rgba(172,152,118,.9)  2px 4px,
+      rgba(222,208,180,.8)  4px 14px,
+      rgba(251,246,234,.92) 14px 16px,
+      rgba(0,0,0,0)         16px 236px),
+    linear-gradient(180deg,
+      rgba(252,247,236,.6),rgba(228,216,192,.5))!important;
+  background-size:
+    218px 236px, 218px 236px, 218px 236px, 218px 236px, 100% 100%!important;
+  background-position:0 0, 0 0, 0 0, 0 0, 0 0!important;
+  background-repeat:repeat,repeat,repeat,repeat,no-repeat!important;
+  color:var(--ink)!important;
+}
+
+/* كورنيش مذهّب يَحُفّ الجدار العاجي من أعلى وأسفل */
+#contact::before,
+#contact::after{
+  content:""!important;display:block!important;
+  position:absolute!important;inset-inline:0!important;
+  height:19px!important;width:auto!important;
+  opacity:1!important;mix-blend-mode:normal!important;
+  background-color:var(--cornice)!important;
+  background-image:
+    radial-gradient(circle at 50% 44%,
+      rgba(255,247,222,.9) 2px, rgba(255,247,222,0) 2.5px),
+    radial-gradient(circle at 50% 46%,
+      rgba(70,56,26,.5) 3.2px, rgba(70,56,26,0) 3.7px),
+    repeating-linear-gradient(90deg,
+      rgba(110,90,42,.55) 0 2px, rgba(110,90,42,0) 2px 11px),
+    linear-gradient(180deg,
+      var(--cornice-hi)   0,   var(--cornice-hi)   2px,
+      var(--cornice-mid)  2px, var(--cornice-mid)  6px,
+      var(--cornice)      6px, var(--cornice)      12px,
+      var(--cornice-lo)   12px,var(--cornice-lo)   16px,
+      var(--cornice-dark) 16px,var(--cornice-dark) 100%)!important;
+  background-size:22px 100%, 22px 100%, 22px 100%, 100% 100%!important;
+  background-position:0 0, 0 0, 11px 0, 0 0!important;
+  background-repeat:repeat-x!important;
+  z-index:2;
+}
+#contact::before{inset-block-start:0!important;display:block!important}
+#contact::after{
+  inset-block-start:auto!important;inset-block-end:0!important;
+  /* يُقلب رأساً على عقب فيصير الضوء إلى الأسفل كالكورنيش السفلي */
+  transform:scaleY(-1);
+}
+
+/* نصّ غامق على الجدار العاجي — قلب كامل لما كان فاتحاً */
+#contact .h2,
+#contact .h2--light{color:var(--navy)!important}
+#contact .sub,
+#contact .sub--light{color:var(--ink-soft)!important}
+#contact .eyebrow,
+#contact .eyebrow--light{color:var(--cornice-lo)!important}
+#contact .eyebrow::after,
+#contact .eyebrow--light::after{
+  background:linear-gradient(90deg,var(--cornice),transparent)!important;
+}
+#contact .contact__note{color:var(--ink-soft)!important}
+#contact .contact__note span{color:var(--navy)!important;font-weight:600}
+
+/* الأزرار: القرمزي الحقيقي + زرّ محدَّد غامق بدل الفاتح */
+#contact .btn--red{
+  background:var(--logo-crimson)!important;color:#fff!important;
+  box-shadow:0 8px 26px rgba(200,32,46,.3)!important;
+}
+#contact .btn--red:hover{
+  background:var(--logo-crimson-dp)!important;
+  box-shadow:0 16px 38px rgba(155,22,35,.42)!important;
+}
+#contact .btn--ghost{
+  color:var(--navy)!important;
+  border-color:var(--cornice-lo)!important;
+  background:rgba(255,255,255,.4)!important;
+}
+#contact .btn--ghost:hover{
+  background:var(--navy)!important;color:var(--boiserie)!important;
+  border-color:var(--navy)!important;
+}
+
+/* مساحة تَتَنفّس فيها الحشوات فوق الكورنيشين */
+#contact{padding-block:clamp(4.4rem,8vw,6.4rem)!important}
+
+/* لوح مُثلَج يحمل النصّ — مأخوذ من لقطتكم الثانية حيث يجلس الشعار
+   على لوح أبيض شبه شفّاف فوق ورق الجدران. يضمن أن لا يعبُر أخدودُ
+   حشوةٍ خلف حرفٍ فيُربك القراءة. */
+#contact .wrap--narrow{
+  position:relative;z-index:1;
+  background:rgba(252,248,239,.84);
+  -webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);
+  padding:clamp(2.2rem,4.5vw,3.4rem) clamp(1.4rem,4vw,2.8rem);
+  border-radius:4px 34px 4px 34px;
+  box-shadow:
+    0 2px 0 rgba(251,246,234,.9),
+    0 18px 50px rgba(110,90,42,.14),
+    inset 0 0 0 1px rgba(201,183,149,.5);
+}
+
+/* ============================================================
+   ٣ · التذييل: الجدار الأخضر العلوي من اللقطة ١
+   أخضر أعمق من الزيتوني + زخارف ذهبيّة متفرّقة.
+   يفصله عن التواصل تبايُنٌ تامّ — لا تَشابُهَ بعد اليوم.
+   ============================================================ */
+.foot{
+  background-color:var(--forest)!important;
+  background-image:
+    /* زخرفة ذهبيّة رباعيّة: أربع نقاط حول مركز */
+    radial-gradient(circle at 50% 50%,
+      rgba(201,162,39,.62) 1.7px, rgba(201,162,39,0) 2.1px),
+    radial-gradient(circle at 50% 18%,
+      rgba(217,196,142,.4) 1.1px, rgba(217,196,142,0) 1.5px),
+    radial-gradient(circle at 50% 82%,
+      rgba(217,196,142,.4) 1.1px, rgba(217,196,142,0) 1.5px),
+    radial-gradient(circle at 18% 50%,
+      rgba(217,196,142,.4) 1.1px, rgba(217,196,142,0) 1.5px),
+    radial-gradient(circle at 82% 50%,
+      rgba(217,196,142,.4) 1.1px, rgba(217,196,142,0) 1.5px),
+    linear-gradient(180deg,
+      rgba(60,74,46,.92),rgba(46,58,34,.97))!important;
+  background-size:
+    76px 76px, 76px 76px, 76px 76px, 76px 76px, 76px 76px, 100% 100%!important;
+  background-position:
+    0 0, 0 0, 0 0, 0 0, 0 0, 0 0!important;
+  background-repeat:repeat,repeat,repeat,repeat,repeat,no-repeat!important;
+  color:rgba(240,234,220,.74)!important;
+  position:relative;
+}
+.foot strong{color:var(--cornice-mid)!important}
+.foot__dim{color:rgba(240,234,220,.48)!important}
+
+/* ============================================================
+   ٤ · الدمشقي الأزرق: الأزرق الحقيقي من ورق جداركم
+   كان الطلاء يميل للكحلي الغامق فيطفئ النقشة؛ صار غريجاً
+   تحت أزرقٍ أصفى، كاللقطة تماماً.
+   ============================================================ */
+#uniform{
+  background-color:var(--damask-navy)!important;
+  background-image:
+    linear-gradient(180deg,
+      rgba(47,79,134,.84),rgba(37,62,108,.9)),
+    url("img/pattern-blue.jpg")!important;
+  background-size:cover,320px auto!important;
+  background-repeat:no-repeat,repeat!important;
+}
+#experience{
+  background-color:#24395C!important;
+  background-image:
+    linear-gradient(180deg,
+      rgba(36,57,92,.86),rgba(27,43,70,.91)),
+    url("img/pattern-blue.jpg")!important;
+  background-size:cover,340px auto!important;
+  background-repeat:no-repeat,repeat!important;
+}
+
+/* ============================================================
+   ٥ · تنظيف: أنماط أقسام محذوفة من العرض الوصفي
+   (#why-location · #numbers · #capacity · #plan)
+   تُبقى القواعد في palette.css للرجوع، وتُلغى هنا أثرها.
+   ============================================================ */
+#why-location,#numbers,#capacity,#plan{display:none!important}
+
+/* ============================================================
+   ٦ · احترام تقليل الحركة
+   ============================================================ */
+@media(prefers-reduced-motion:reduce){
+  #contact::before,#contact::after{animation:none!important}
+}

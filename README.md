@@ -73,7 +73,7 @@
 
 ## الموسيقى
 
-مشغّل في `assets/audio/` — مقطعان حالياً، بتكرار وتنقّل.
+مشغّل في `assets/audio/` — **أربعة مقاطع**، بتكرار وتنقّل وبداية عشوائيّة.
 
 **لا يبدأ تلقائياً** (المتصفّحات تحجب ذلك) بل عند **أول لمسة**، بتصاعد هادئ من صفر إلى ٣٢٪.
 
@@ -92,6 +92,7 @@ assets/
   photo.css                اهتزاز الحرارة · الأطباق · النكهات
   textures.css             النقشات
   palette.css              لوحة العميل وإيقاع الأقسام
+  boiserie.css             البواسري والكورنيش الذهبي والدمشقي الأزرق
   memories.css             جدار الذكريات
   radio.css · radio.js     الموسيقى
   oven.css                 الفرن المرسوم السابق (محفوظ)
@@ -104,7 +105,7 @@ inbox/                     مواد العميل الخام
 ```
 
 **ترتيب تحميل CSS مهم:**
-`styles → magic → oven → fx → photo → textures → palette → memories → radio`
+`styles → magic → oven → fx → photo → textures → palette → boiserie → memories → radio → uniform`
 
 ---
 
