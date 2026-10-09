@@ -121,3 +121,65 @@
   .ovenphoto__haze,.ovenphoto__glow{animation:none!important}
   .ovenphoto__fire{filter:none}
 }
+
+/* ============================================================
+   خريطة النكهات — الميكس كموقف معلن لا كتشتّت
+   ============================================================ */
+.flavors{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));
+  gap:16px;margin-block-start:2rem;
+}
+.flavor{
+  position:relative;background:#fff;border-radius:var(--r);
+  padding:1.5rem 1.4rem 1.4rem;overflow:hidden;
+  box-shadow:0 6px 24px rgba(43,33,28,.08);
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease);
+}
+.flavor::before{
+  content:"";position:absolute;inset-block-start:0;inset-inline:0;height:6px;
+  background:var(--stripes);background-size:140px 100%;
+}
+.flavor:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+
+.flavor__place{
+  display:block;font-family:var(--f-display);font-size:1.5rem;
+  color:var(--navy);margin-block-end:.15rem;
+}
+.flavor__era{
+  display:block;font-size:.7rem;letter-spacing:.14em;
+  color:var(--red);margin-block-end:.9rem;
+}
+.flavor__list{
+  margin:0;padding:0;list-style:none;
+  display:flex;flex-wrap:wrap;gap:.4rem;
+}
+.flavor__list li{
+  font-size:.82rem;padding:.28rem .72rem;border-radius:100px;
+  background:var(--cream-warm);color:var(--ink-soft);
+}
+
+/* بيان الميكس */
+.manifesto{
+  position:relative;margin-block-start:2.4rem;
+  padding:clamp(1.6rem,3.5vw,2.6rem);border-radius:var(--r-lg);
+  background:var(--navy);color:var(--cream);overflow:hidden;
+}
+.manifesto::before{
+  content:"";position:absolute;inset-block-start:0;inset-inline:0;height:9px;
+  background:var(--stripes);background-size:200px 100%;
+}
+.manifesto::after{
+  content:"";position:absolute;inset-block-end:-70px;inset-inline-end:-70px;
+  width:260px;height:260px;border-radius:50%;
+  background:radial-gradient(circle,rgba(212,162,76,.17),transparent 70%);
+}
+.manifesto h3{
+  font-family:var(--f-display);font-size:clamp(1.4rem,3vw,2.1rem);
+  margin:.4rem 0 1rem;color:var(--cream);position:relative;
+}
+.manifesto p{
+  margin:0 0 1rem;font-size:1.04rem;line-height:1.95;
+  color:rgba(244,234,218,.88);position:relative;max-width:68ch;
+}
+.manifesto p:last-child{margin:0}
+.manifesto strong{color:var(--st-mustard);font-weight:500}
