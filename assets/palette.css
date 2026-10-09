@@ -1,0 +1,399 @@
+/* ============================================================
+   الزمن الجميل — لوحة العميل وإيقاع الأقسام
+   كل قسم بخلفيّة مختلفة، ولا قسمان متجاوران متشابهان.
+   يُحمَّل آخراً ليتجاوز ما قبله.
+   ============================================================ */
+
+:root{
+  /* ===== من صفحة البروفايل الزيتونيّة ===== */
+  --olive:       #44503A;
+  --olive-deep:  #333D2B;
+  --olive-dark:  #252D1F;
+  --olive-soft:  #5B6A4D;
+
+  /* ===== الذهبي: نقاط البروفايل ===== */
+  --gold-dot:    #C9A227;
+  --gold-warm:   #D9BC85;
+
+  /* ===== من صفحة البروفايل النعناعيّة ===== */
+  --mint:        #A3D9B8;
+  --mint-pale:   #CDE9D8;
+  --mint-deep:   #5FA885;
+
+  /* ===== من نقشة ورق الجدران الزهريّة ===== */
+  --greige:      #E9E1D2;
+  --cream-soft:  #F4EEE2;
+  --rose:        #E9A8A0;
+  --rose-pale:   #F5DCD7;
+  --rose-deep:   #C9736C;
+  --sage:        #8C9C7A;
+  --sage-deep:   #4F5E45;
+  --wheat:       #E6C98A;
+}
+
+/* ============================================================
+   نقشة النقاط الذهبيّة — مولّدة بـCSS كما في بروفايلكم
+   ============================================================ */
+.dots-gold{
+  background-image:
+    radial-gradient(circle, rgba(201,162,39,.55) 1.7px, transparent 2px),
+    radial-gradient(circle, rgba(201,162,39,.38) 1.3px, transparent 1.6px),
+    radial-gradient(circle, rgba(217,188,133,.3) 1px, transparent 1.3px);
+  background-size:58px 58px, 58px 58px, 94px 94px;
+  background-position:0 0, 29px 29px, 14px 47px;
+}
+
+/* ============================================================
+   إيقاع الأقسام — الترتيب الفعلي للنزول
+   ============================================================ */
+
+/* ---------- ١ الواجهة: حجاب زيتوني بدل البنّي ---------- */
+.hero__veil{
+  background:
+    radial-gradient(120% 90% at 78% 12%,rgba(201,162,39,.22),transparent 60%),
+    linear-gradient(to left,
+      rgba(37,45,31,.92) 0%,
+      rgba(37,45,31,.74) 42%,
+      rgba(37,45,31,.3) 100%)!important;
+}
+
+/* ---------- ٢ الفكرة: كريمي + زهور ---------- */
+#concept{
+  background-color:var(--cream-soft)!important;
+  background-image:
+    linear-gradient(rgba(244,238,226,.93),rgba(244,238,226,.95)),
+    url("img/pattern-floral.jpg")!important;
+  background-size:cover,330px auto!important;
+  background-repeat:no-repeat,repeat!important;
+}
+
+/* ---------- ٣ الفرن: زيتوني غامق + نقاط ذهبيّة ---------- */
+#oven{
+  background-color:var(--olive-deep)!important;
+  background-image:
+    radial-gradient(circle, rgba(201,162,39,.5) 1.7px, transparent 2px),
+    radial-gradient(circle, rgba(201,162,39,.32) 1.3px, transparent 1.6px),
+    linear-gradient(rgba(51,61,43,.9),rgba(37,45,31,.94)),
+    url("img/pattern-velvet-gold.jpg")!important;
+  background-size:58px 58px, 58px 58px, cover, 240px auto!important;
+  background-position:0 0, 29px 29px, 0 0, 0 0!important;
+  background-repeat:repeat,repeat,no-repeat,repeat!important;
+}
+
+/* ---------- ٤ التشويقي: نبيذي + دمشقي ---------- */
+#teaser{
+  background-color:#4A1216!important;
+  background-image:
+    linear-gradient(rgba(74,18,22,.88),rgba(51,12,16,.92)),
+    url("img/pattern-red.jpg")!important;
+  background-size:cover,380px auto!important;
+  background-repeat:no-repeat,repeat!important;
+}
+
+/* ---------- لافتة الأطباق: زيتوني أغمق + نقاط ---------- */
+.marquee{
+  background-color:var(--olive-dark)!important;
+  background-image:
+    radial-gradient(circle, rgba(201,162,39,.4) 1.4px, transparent 1.7px),
+    linear-gradient(rgba(37,45,31,.86),rgba(37,45,31,.9))!important;
+  background-size:46px 46px, cover!important;
+  border-block-color:rgba(201,162,39,.4)!important;
+}
+.marquee span::after{background:var(--gold-dot)!important}
+
+/* ---------- ٥ الهويّة: نعناعي فاتح + زهور ---------- */
+#brand{
+  background-color:var(--mint-pale)!important;
+  background-image:
+    linear-gradient(rgba(205,233,216,.9),rgba(230,243,235,.93)),
+    url("img/pattern-floral.jpg")!important;
+  background-size:cover,320px auto!important;
+  background-repeat:no-repeat,repeat!important;
+}
+
+/* ---------- ٦ التجربة: كحلي الشعار + دمشقي أزرق ---------- */
+#experience{
+  background-color:var(--navy-deep)!important;
+  background-image:
+    linear-gradient(rgba(30,44,61,.88),rgba(23,34,48,.92)),
+    url("img/pattern-blue.jpg")!important;
+  background-size:cover,340px auto!important;
+  background-repeat:no-repeat,repeat!important;
+}
+
+/* ---------- ٧ استكشف: زيتوني + نقاط ---------- */
+#explore{
+  background-color:var(--olive)!important;
+  background-image:
+    radial-gradient(circle, rgba(201,162,39,.45) 1.6px, transparent 1.9px),
+    radial-gradient(circle, rgba(217,188,133,.26) 1.1px, transparent 1.4px),
+    linear-gradient(rgba(68,80,58,.9),rgba(51,61,43,.93))!important;
+  background-size:62px 62px, 100px 100px, cover!important;
+  background-position:0 0, 20px 50px, 0 0!important;
+}
+
+/* ---------- ٨ الجولة: سيبيا داكنة + دمشقي ---------- */
+#walk,
+#walk .walk__sticky{
+  background-color:#2A2219!important;
+  background-image:
+    linear-gradient(rgba(42,34,25,.9),rgba(30,24,18,.94)),
+    url("img/pattern-red.jpg")!important;
+  background-size:cover,420px auto!important;
+  background-repeat:no-repeat,repeat!important;
+}
+
+/* ---------- ٩ المنيو: بيج ورق الجدران + زهور أوضح ---------- */
+#menu{
+  background-color:var(--greige)!important;
+  background-image:
+    linear-gradient(rgba(233,225,210,.86),rgba(233,225,210,.9)),
+    url("img/pattern-floral.jpg")!important;
+  background-size:cover,300px auto!important;
+  background-repeat:no-repeat,repeat!important;
+}
+#menu::before{display:none!important}
+
+/* ---------- ١٠ لماذا موقعكم: وردي باهت + جينجهام ---------- */
+#why-location{
+  background-color:var(--rose-pale)!important;
+  background-image:
+    linear-gradient(rgba(245,220,215,.88),rgba(248,232,228,.92)),
+    url("img/pattern-gingham-red.jpg")!important;
+  background-size:cover,104px auto!important;
+  background-repeat:no-repeat,repeat!important;
+}
+
+/* ---------- ١١ الأرقام: نعناعي شاحب + نقاط سيجي ---------- */
+#numbers{
+  background-color:#E4EFE6!important;
+  background-image:
+    radial-gradient(circle, rgba(140,156,122,.3) 1.5px, transparent 1.8px),
+    linear-gradient(rgba(228,239,230,.9),rgba(236,244,237,.93))!important;
+  background-size:52px 52px, cover!important;
+}
+
+/* ---------- ١٢ الجدارة: نبيذي + دمشقي ---------- */
+#capacity{
+  background-color:var(--wine)!important;
+  background-image:
+    linear-gradient(rgba(111,29,36,.86),rgba(74,18,22,.9)),
+    url("img/pattern-red.jpg")!important;
+  background-size:cover,330px auto!important;
+  background-repeat:no-repeat,repeat!important;
+}
+
+/* ---------- ١٣ التنفيذ: قمحي + زهور ---------- */
+#plan{
+  background-color:#F2E7CF!important;
+  background-image:
+    linear-gradient(rgba(242,231,207,.88),rgba(246,238,220,.92)),
+    url("img/pattern-floral.jpg")!important;
+  background-size:cover,310px auto!important;
+  background-repeat:no-repeat,repeat!important;
+}
+
+/* ---------- ١٤ التواصل: زيتوني غامق + نقاط ذهبيّة ---------- */
+#contact{
+  background-color:var(--olive-deep)!important;
+  background-image:
+    radial-gradient(circle, rgba(201,162,39,.5) 1.8px, transparent 2.1px),
+    radial-gradient(circle, rgba(217,188,133,.3) 1.2px, transparent 1.5px),
+    linear-gradient(rgba(51,61,43,.88),rgba(37,45,31,.93)),
+    url("img/pattern-velvet-gold.jpg")!important;
+  background-size:60px 60px, 96px 96px, cover, 230px auto!important;
+  background-position:0 0, 24px 48px, 0 0, 0 0!important;
+  background-repeat:repeat,repeat,no-repeat,repeat!important;
+}
+#contact::before{display:none!important}
+
+/* ---------- التذييل: أغمق زيتوني ---------- */
+.foot{
+  background-color:var(--olive-dark)!important;
+  background-image:
+    radial-gradient(circle, rgba(201,162,39,.3) 1.3px, transparent 1.6px),
+    linear-gradient(rgba(37,45,31,.9),rgba(28,34,23,.95))!important;
+  background-size:50px 50px, cover!important;
+}
+
+/* ============================================================
+   توافق الحدود والشرائط مع اللوحة الجديدة
+   ============================================================ */
+/* شريط الجينجهام الفاصل يبقى، لكن يُخفى على الأقسام الزيتونيّة
+   لئلّا يصطدم الأحمر بالزيتوني */
+#oven::after,#explore::after,#contact::after{
+  background:linear-gradient(90deg,
+    transparent,rgba(201,162,39,.55),transparent)!important;
+  height:2px!important;
+}
+
+/* ============================================================
+   الأزرار والتمييزات على الأسطح الزيتونيّة
+   ============================================================ */
+#oven .btn--ghost,#explore .btn--ghost,#contact .btn--ghost{
+  color:var(--cream)!important;border-color:rgba(201,162,39,.7)!important;
+}
+#oven .btn--ghost:hover,#explore .btn--ghost:hover,#contact .btn--ghost:hover{
+  background:var(--gold-dot)!important;color:var(--olive-dark)!important;
+}
+#oven .eyebrow,#explore .eyebrow,#contact .eyebrow,
+#oven .eyebrow--light,#explore .eyebrow--light{color:var(--gold-warm)!important}
+
+/* بطاقات داكنة على الزيتوني */
+#oven .card--dark,#explore .card--dark,#capacity .card--dark{
+  background-color:rgba(244,238,226,.08)!important;
+  background-image:linear-gradient(rgba(0,0,0,.18),rgba(0,0,0,.26))!important;
+  border-color:rgba(201,162,39,.3)!important;
+}
+
+/* ============================================================
+   بطاقات الأسطح الفاتحة الجديدة
+   ============================================================ */
+#brand .card,#brand .pillars,
+#numbers .kpi__box,#numbers .card,
+#plan .checks li,
+#why-location .value article,
+#menu .menu__cat,#menu .flavor{
+  background-color:rgba(255,255,255,.9)!important;
+  background-image:linear-gradient(rgba(255,255,255,.72),rgba(255,255,255,.86))!important;
+  backdrop-filter:blur(2px);
+}
+
+/* ============================================================
+   الترويسة: كريمي شفّاف يلائم كل الأسطح
+   ============================================================ */
+.nav.is-stuck{
+  background-color:rgba(244,238,226,.94)!important;
+  background-image:linear-gradient(rgba(244,238,226,.9),rgba(244,238,226,.95))!important;
+  box-shadow:0 2px 26px rgba(37,45,31,.16)!important;
+}
+.nav__progress{background:linear-gradient(90deg,var(--gold-dot),var(--rose-deep))!important}
+
+/* ============================================================
+   إضافات العميل: المخمل الذهبي + الجينجهام الأخضر الزيتوني
+   الجينجهام مولّد بـCSS: خطّان متعارضان شبه شفّافين يُنتجان
+   ثلاث درجات حقيقيّة عند التقاطع — كالقماش تماماً.
+   ============================================================ */
+
+:root{
+  --gingham-olive: #6B7F3F;
+  --sage-paper:    #DCDFCB;
+  --seal-green:    #7DBE8E;
+}
+
+.gingham-green{
+  background-color:#F1F0E3;
+  background-image:
+    repeating-linear-gradient(90deg,
+      rgba(107,127,63,.5) 0 13px, transparent 13px 26px),
+    repeating-linear-gradient(180deg,
+      rgba(107,127,63,.5) 0 13px, transparent 13px 26px);
+}
+
+/* ---------- شريط جينجهام أخضر يفصل الأقسام ---------- */
+.stripes{
+  height:14px!important;
+  background-color:#F1F0E3!important;
+  background-image:
+    repeating-linear-gradient(90deg,
+      rgba(107,127,63,.55) 0 11px, transparent 11px 22px),
+    repeating-linear-gradient(180deg,
+      rgba(107,127,63,.55) 0 11px, transparent 11px 22px)!important;
+  background-size:auto!important;
+  animation:none!important;
+}
+.stripes--tall{height:20px!important}
+.stripes--thin{height:8px!important}
+
+/* ---------- ١١ الأرقام: ورق سيجي + زهور خفيفة ---------- */
+#numbers{
+  background-color:var(--sage-paper)!important;
+  background-image:
+    linear-gradient(rgba(220,223,203,.84),rgba(230,232,215,.9)),
+    url("img/pattern-floral.jpg")!important;
+  background-size:cover,300px auto!important;
+  background-repeat:no-repeat,repeat!important;
+}
+
+/* ---------- ١٣ التنفيذ: جينجهام أخضر ---------- */
+#plan{
+  background-color:#F1F0E3!important;
+  background-image:
+    linear-gradient(rgba(241,240,227,.9),rgba(241,240,227,.93)),
+    repeating-linear-gradient(90deg,
+      rgba(107,127,63,.42) 0 14px, transparent 14px 28px),
+    repeating-linear-gradient(180deg,
+      rgba(107,127,63,.42) 0 14px, transparent 14px 28px)!important;
+  background-size:cover,auto,auto!important;
+  background-repeat:no-repeat,repeat,repeat!important;
+}
+
+/* ---------- ١٠ لماذا موقعكم: وردي + جينجهام أخضر خفيف ---------- */
+#why-location{
+  background-color:var(--rose-pale)!important;
+  background-image:
+    linear-gradient(rgba(245,222,216,.9),rgba(248,234,229,.93)),
+    repeating-linear-gradient(90deg,
+      rgba(107,127,63,.3) 0 12px, transparent 12px 24px),
+    repeating-linear-gradient(180deg,
+      rgba(107,127,63,.3) 0 12px, transparent 12px 24px)!important;
+  background-size:cover,auto,auto!important;
+  background-repeat:no-repeat,repeat,repeat!important;
+}
+#why-location::before{
+  background-color:#F1F0E3!important;
+  background-image:
+    repeating-linear-gradient(90deg,
+      rgba(107,127,63,.55) 0 11px, transparent 11px 22px),
+    repeating-linear-gradient(180deg,
+      rgba(107,127,63,.55) 0 11px, transparent 11px 22px)!important;
+  height:14px!important;background-size:auto!important;
+}
+
+/* ---------- المخمل الذهبي: الأسطح الزيتونيّة والتذييل ---------- */
+#oven,#explore,#contact{
+  background-blend-mode:normal;
+}
+.foot{
+  background-image:
+    radial-gradient(circle, rgba(201,162,39,.3) 1.3px, transparent 1.6px),
+    linear-gradient(rgba(37,45,31,.88),rgba(28,34,23,.94)),
+    url("img/pattern-velvet-gold.jpg")!important;
+  background-size:50px 50px, cover, 220px auto!important;
+  background-repeat:repeat,no-repeat,repeat!important;
+}
+
+/* ---------- لمسة ختم الشمع الأخضر على البطاقات المميّزة ---------- */
+.flavor::before{
+  background:linear-gradient(90deg,
+    var(--gingham-olive),var(--seal-green) 40%,
+    var(--gold-dot) 70%,var(--rose-deep))!important;
+  background-size:auto!important;
+}
+.pillars::before{
+  background:linear-gradient(90deg,
+    var(--gingham-olive),var(--seal-green) 35%,
+    var(--gold-dot) 65%,var(--rose))!important;
+  background-size:auto!important;
+}
+.manifesto::before{
+  background:linear-gradient(90deg,
+    var(--gold-dot),var(--seal-green) 50%,var(--gingham-olive))!important;
+  background-size:auto!important;
+}
+.brand__logo::before{
+  background:linear-gradient(90deg,
+    var(--gingham-olive),var(--gold-dot) 50%,var(--rose-deep))!important;
+  background-size:auto!important;
+}
+
+/* ---------- بيان الميكس: زيتوني بدل الكحلي ---------- */
+.manifesto{
+  background-color:var(--olive-deep)!important;
+  background-image:
+    radial-gradient(circle, rgba(201,162,39,.42) 1.5px, transparent 1.8px),
+    linear-gradient(rgba(51,61,43,.9),rgba(37,45,31,.94)),
+    url("img/pattern-velvet-gold.jpg")!important;
+  background-size:54px 54px, cover, 220px auto!important;
+  background-repeat:repeat,no-repeat,repeat!important;
+}
