@@ -13,16 +13,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=17">
-<link rel="stylesheet" href="assets/magic.css?v=17">
-<link rel="stylesheet" href="assets/oven.css?v=17">
-<link rel="stylesheet" href="assets/fx.css?v=17">
-<link rel="stylesheet" href="assets/photo.css?v=17">
-<link rel="stylesheet" href="assets/textures.css?v=17">
-<link rel="stylesheet" href="assets/palette.css?v=17">
-<link rel="stylesheet" href="assets/memories.css?v=17">
-<link rel="stylesheet" href="assets/radio.css?v=17">
-<link rel="stylesheet" href="assets/uniform.css?v=17">
+<link rel="stylesheet" href="assets/styles.css?v=18">
+<link rel="stylesheet" href="assets/magic.css?v=18">
+<link rel="stylesheet" href="assets/oven.css?v=18">
+<link rel="stylesheet" href="assets/fx.css?v=18">
+<link rel="stylesheet" href="assets/photo.css?v=18">
+<link rel="stylesheet" href="assets/textures.css?v=18">
+<link rel="stylesheet" href="assets/palette.css?v=18">
+<link rel="stylesheet" href="assets/memories.css?v=18">
+<link rel="stylesheet" href="assets/radio.css?v=18">
+<link rel="stylesheet" href="assets/uniform.css?v=18">
 </head>
 <body>
 
@@ -47,15 +47,17 @@
     <rect width="9" height="9" fill="#F7F5EE"/>
     <rect width="4" height="9" fill="#2F6B4F"/>
   </pattern>
-  <!-- قميص مقلّم أزرق رفيع -->
-  <pattern id="fStripeBlue" patternUnits="userSpaceOnUse" width="7" height="7">
-    <rect width="7" height="7" fill="#EFF2F6"/>
-    <rect width="2.4" height="7" fill="#7D96B8"/>
+  <!-- قميص كاروهات دقيقة جداً: قميص الكابتن -->
+  <pattern id="fMicroCheck" patternUnits="userSpaceOnUse" width="6" height="6">
+    <rect width="6" height="6" fill="#E8EDF4"/>
+    <rect width="3" height="6" fill="#8FA8C6" fill-opacity=".55"/>
+    <rect width="6" height="3" fill="#8FA8C6" fill-opacity=".55"/>
   </pattern>
-  <!-- كوردروي بنّي: خطوط رأسيّة دقيقة -->
-  <pattern id="fCorduroy" patternUnits="userSpaceOnUse" width="5" height="5">
-    <rect width="5" height="5" fill="#7A5230"/>
-    <rect width="1.6" height="5" fill="#000" fill-opacity=".18"/>
+  <!-- هيرنغبون بنّي: صديري الكابتن -->
+  <pattern id="fHerringbone" patternUnits="userSpaceOnUse" width="8" height="8">
+    <rect width="8" height="8" fill="#8A6442"/>
+    <path d="M0 0 L4 4 L0 8" fill="none" stroke="#5E4028" stroke-opacity=".55" stroke-width="1.3"/>
+    <path d="M4 0 L8 4 L4 8" fill="none" stroke="#A8805A" stroke-opacity=".45" stroke-width="1.3"/>
   </pattern>
   <!-- دينم كحلي -->
   <pattern id="fDenim" patternUnits="userSpaceOnUse" width="6" height="6"
@@ -739,21 +741,37 @@
   <div class="wrap">
     <p class="eyebrow eyebrow--light" data-reveal>٠٩ — اليونيفورم</p>
     <h2 class="h2 h2--light" data-split data-reveal>الزيّ — الهويّة التي تتحرّك بين الطاولات</h2>
-    <p class="sub sub--light" data-reveal>ثلاث إطلالات <strong>مُصمَّمة ومنفَّذة فعلاً</strong>،
-    مرسومة أدناه بأقمشتها الحقيقيّة. الشعار مطرّز على كل مريلة — فالضيف يرى
-    علامةً واحدة من الباب إلى الطبق.</p>
+    <p class="sub sub--light" data-reveal>ثلاث إطلالات <strong>مُصمَّمة ومُصوَّرة ومنفَّذة فعلاً</strong>
+    — لا تصوّراً على ورق. والشعار مطرّز على كل مريلة، فالضيف يرى علامةً واحدة
+    من الباب إلى الطبق.</p>
 
+    <div class="lookbook" data-reveal>
+      <figure class="look">
+        <img src="assets/img/uni-day.jpg" alt="الزيّ النهاري: قميص أبيض، بابيون كحلي، مريلة جينجهام بيج بحمّالات، كاسكيت بنفس القماش" loading="lazy">
+        <figcaption><b>الإطلالة النهاريّة</b><span>الويتر — الصالة والترّاس</span></figcaption>
+      </figure>
+      <figure class="look look--wide">
+        <img src="assets/img/uni-evening.jpg" alt="تفصيل: قميص مقلّم أخضر بياقة بيضاء، كرافة تريكو خضراء، مريلة كانفاس كريمي بالشعار مطرّزاً كحلياً" loading="lazy">
+        <figcaption><b>تفصيل التطريز</b><span>مريلة الكانفاس — إطلالة المساء</span></figcaption>
+      </figure>
+      <figure class="look">
+        <img src="assets/img/uni-captain.jpg" alt="زيّ الكابتن: قميص كاروهات دقيقة، صديري هيرنغبون بنّي بأزرار نحاسيّة، كرافة كاروهات، مريلة دينم كحلي، كاسكيت كحلي" loading="lazy">
+        <figcaption><b>الإطلالة الرسميّة</b><span>الكابتن — واجهة الضيف</span></figcaption>
+      </figure>
+    </div>
+
+    <h3 class="h3" style="color:var(--cream);margin-block-start:2.6rem">مواصفات القطع</h3>
     <div class="uni" data-reveal>
       <article class="unicard">
         <div class="unicard__top">
           <span class="unicard__role">الويتر — الإطلالة النهاريّة</span>
           <span class="unicard__count">٦ — الصالة والترّاس</span>
         </div>
-        <div class="unicard__stage"><svg class="g-shirt" viewBox="0 0 100 104" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 16 L34 7 L50 15 L66 7 L82 16 L86 44 L75 46 L75 92 L25 92 L25 46 L14 44 Z" fill="#FBFAF6" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-apron" viewBox="-4 -4 108 112" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M36 8 L64 8 L68 32 L80 39 L85 100 L15 100 L20 39 L32 32 Z" fill="url(#fGinghamBeige)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/><path d="M30 0 L36 8 L34 10 L26 2 Z M70 0 L64 8 L66 10 L74 2 Z" fill="url(#fGinghamBeige)" stroke="#2B211C" stroke-opacity=".25" stroke-width="1.2"/></svg><svg class="g-cap" viewBox="0 0 100 58" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 42 Q18 8 50 8 Q84 8 88 40 L88 46 Q50 52 12 46 Z" fill="url(#fGinghamBeige)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-bow" viewBox="0 0 100 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 18 L34 6 L34 42 L6 30 Z M94 18 L66 6 L66 42 L94 30 Z M36 16 H64 V32 H36 Z" fill="#1A1A1A" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg></div>
+        <div class="unicard__stage"><svg class="g-shirt" viewBox="0 0 100 104" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 16 L34 7 L50 15 L66 7 L82 16 L86 44 L75 46 L75 92 L25 92 L25 46 L14 44 Z" fill="#FBFAF6" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-apron" viewBox="-4 -4 108 112" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M36 8 L64 8 L68 32 L80 39 L85 100 L15 100 L20 39 L32 32 Z" fill="url(#fGinghamBeige)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/><path d="M30 0 L36 8 L34 10 L26 2 Z M70 0 L64 8 L66 10 L74 2 Z" fill="url(#fGinghamBeige)" stroke="#2B211C" stroke-opacity=".25" stroke-width="1.2"/></svg><svg class="g-cap" viewBox="0 0 100 58" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 42 Q18 8 50 8 Q84 8 88 40 L88 46 Q50 52 12 46 Z" fill="url(#fGinghamBeige)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-bow" viewBox="0 0 100 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 18 L34 6 L34 42 L6 30 Z M94 18 L66 6 L66 42 L94 30 Z M36 16 H64 V32 H36 Z" fill="#26324A" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg></div>
         <div class="unicard__body">
-          <ul class="unicard__list"><li>قميص أبيض قطني بأكمام طويلة وياقة كلاسيكيّة</li><li><b>بابيون أسود</b></li><li>مريلة <b>جينجهام بيج كبير</b> بحمّالات كتف</li><li>كاسكيت (فلات كاب) بنفس قماش المريلة</li><li>بنطال كحلي داكن مستقيم</li></ul>
-          <div class="unicard__chips"><i style="background:#FBFAF6"></i><i style="background:#C9B98A"></i><i style="background:#1A1A1A"></i><i style="background:#2A3A52"></i></div>
-          <p class="unicard__logo">الشعار <b>مطرّز أبيض</b> أسفل يمين المريلة.</p>
+          <ul class="unicard__list"><li>قميص أبيض قطني بأكمام طويلة وياقة كلاسيكيّة</li><li><b>بابيون كحلي</b></li><li>مريلة <b>جينجهام بيج كبير</b> بحمّالات كتف</li><li>كاسكيت (فلات كاب) بنفس قماش المريلة</li><li>بنطال كحلي داكن مستقيم</li></ul>
+          <div class="unicard__chips"><i style="background:#FBFAF6"></i><i style="background:#C9B98A"></i><i style="background:#26324A"></i><i style="background:#2A3A52"></i></div>
+          <p class="unicard__logo">الشعار <b>مطرّز كحلي</b> أسفل يمين المريلة، على جيب أمامي.</p>
         </div>
       </article>
       <article class="unicard">
@@ -761,11 +779,11 @@
           <span class="unicard__role">الكابتن — الإطلالة الرسميّة</span>
           <span class="unicard__count">٣ — واجهة الضيف</span>
         </div>
-        <div class="unicard__stage"><svg class="g-shirt" viewBox="0 0 100 104" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 16 L34 7 L50 15 L66 7 L82 16 L86 44 L75 46 L75 92 L25 92 L25 46 L14 44 Z" fill="url(#fStripeBlue)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-vest" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M22 14 L36 8 L50 30 L64 8 L78 14 L80 44 L78 86 L50 92 L22 86 L20 44 Z" fill="url(#fCorduroy)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-apron" viewBox="-4 -4 108 112" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M36 8 L64 8 L68 32 L80 39 L85 100 L15 100 L20 39 L32 32 Z" fill="url(#fDenim)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-cap" viewBox="0 0 100 58" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 42 Q18 8 50 8 Q84 8 88 40 L88 46 Q50 52 12 46 Z" fill="#2A3A52" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-tie" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M40 6 H60 L64 22 L54 86 L50 94 L46 86 L36 22 Z" fill="url(#fPlaid)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg></div>
+        <div class="unicard__stage"><svg class="g-shirt" viewBox="0 0 100 104" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 16 L34 7 L50 15 L66 7 L82 16 L86 44 L75 46 L75 92 L25 92 L25 46 L14 44 Z" fill="url(#fMicroCheck)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-vest" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M22 14 L36 8 L50 30 L64 8 L78 14 L80 44 L78 86 L50 92 L22 86 L20 44 Z" fill="url(#fHerringbone)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-apron" viewBox="-4 -4 108 112" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M36 8 L64 8 L68 32 L80 39 L85 100 L15 100 L20 39 L32 32 Z" fill="url(#fDenim)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-cap" viewBox="0 0 100 58" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 42 Q18 8 50 8 Q84 8 88 40 L88 46 Q50 52 12 46 Z" fill="#2A3A52" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-tie" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M40 6 H60 L64 22 L54 86 L50 94 L46 86 L36 22 Z" fill="url(#fPlaid)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg></div>
         <div class="unicard__body">
-          <ul class="unicard__list"><li>قميص <b>مقلّم أزرق رفيع</b> بأكمام طويلة</li><li><b>صديري كوردروي بنّي</b> مزدوج الأزرار</li><li>كرافة <b>كاروهات</b> ترابيّة</li><li>مريلة <b>دينم كحلي</b> بخطوط نظيفة</li><li>كاسكيت كحلي · <b>شارة اسم نحاسيّة</b></li></ul>
+          <ul class="unicard__list"><li>قميص <b>كاروهات دقيقة</b> أزرق بأكمام طويلة</li><li><b>صديري هيرنغبون بنّي</b> مزدوج الأزرار بأزرار نحاسيّة</li><li>كرافة <b>كاروهات</b> ترابيّة بمشبك</li><li>مريلة <b>دينم كحلي</b> بخطوط نظيفة</li><li>كاسكيت كحلي · <b>شارة اسم نحاسيّة</b></li></ul>
           <div class="unicard__chips"><i style="background:#7D96B8"></i><i style="background:#7A5230"></i><i style="background:#2A3A52"></i><i style="background:#C9A227"></i></div>
-          <p class="unicard__logo">الشعار <b>مطرّز أبيض</b> وسط المريلة الكحليّة، والشارة النحاسيّة على الصديري.</p>
+          <p class="unicard__logo">الشعار <b>مطرّز أبيض</b> وسط مريلة الدينم، والشارة النحاسيّة على الصديري.</p>
         </div>
       </article>
       <article class="unicard">
@@ -775,9 +793,9 @@
         </div>
         <div class="unicard__stage"><svg class="g-shirt" viewBox="0 0 100 104" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 16 L34 7 L50 15 L66 7 L82 16 L86 44 L75 46 L75 92 L25 92 L25 46 L14 44 Z" fill="url(#fStripeGreen)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-apron" viewBox="-4 -4 108 112" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M36 8 L64 8 L68 32 L80 39 L85 100 L15 100 L20 39 L32 32 Z" fill="url(#fCanvas)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-tie" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M40 6 H60 L64 22 L54 86 L50 94 L46 86 L36 22 Z" fill="url(#fKnitGreen)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg></div>
         <div class="unicard__body">
-          <ul class="unicard__list"><li>قميص <b>مقلّم أخضر وأبيض</b> بياقة بيضاء</li><li><b>كرافة تريكو خضراء غامقة</b></li><li>مريلة <b>كانفاس كريمي</b> بحمّالة رقبة</li><li>بنطال كحلي أو زيتوني</li><li>حذاء جلد مغلق</li></ul>
+          <ul class="unicard__list"><li>قميص <b>مقلّم أخضر وأبيض</b> بياقة بيضاء مستديرة</li><li><b>كرافة تريكو خضراء غامقة</b></li><li>مريلة <b>كانفاس كريمي</b> بحمّالة رقبة وجيب أمامي</li><li>بنطال كحلي أو زيتوني</li><li>حذاء جلد مغلق</li></ul>
           <div class="unicard__chips"><i style="background:#2F6B4F"></i><i style="background:#EFE7D6"></i><i style="background:#1F4A35"></i><i style="background:#2A3A52"></i></div>
-          <p class="unicard__logo">الشعار <b>مطرّز كحلي وأخضر</b> على المريلة الكريميّة — أجمل تنفيذ في الطقم.</p>
+          <p class="unicard__logo">الشعار <b>مطرّز كحلي</b> بنقاط حمراء داخل الخطّ، على جيب المريلة — أجمل تنفيذ في الطقم.</p>
         </div>
       </article>
       <article class="unicard">
@@ -800,8 +818,8 @@
       <figure class="fabric fabric--swatch"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="url(#fDenim)"/></svg><span>دينم كحلي · مريلة الكابتن</span></figure>
       <figure class="fabric fabric--swatch"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="url(#fCanvas)"/></svg><span>كانفاس كريمي · مريلة المساء</span></figure>
       <figure class="fabric fabric--swatch"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="url(#fStripeGreen)"/></svg><span>مقلّم أخضر · قميص المساء</span></figure>
-      <figure class="fabric fabric--swatch"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="url(#fStripeBlue)"/></svg><span>مقلّم أزرق · قميص الكابتن</span></figure>
-      <figure class="fabric fabric--swatch"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="url(#fCorduroy)"/></svg><span>كوردروي بنّي · الصديري</span></figure>
+      <figure class="fabric fabric--swatch"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="url(#fMicroCheck)"/></svg><span>كاروهات دقيقة · قميص الكابتن</span></figure>
+      <figure class="fabric fabric--swatch"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="url(#fHerringbone)"/></svg><span>هيرنغبون بنّي · الصديري</span></figure>
       <figure class="fabric fabric--swatch"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="url(#fKnitGreen)"/></svg><span>تريكو أخضر · الكرافة</span></figure>
       <figure class="fabric fabric--swatch"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="url(#fPlaid)"/></svg><span>كاروهات · كرافة الكابتن</span></figure>
       <figure class="fabric fabric--solid" style="background:#4A3B2A"><span>جلد بنّي · الفرن</span></figure>
@@ -976,9 +994,9 @@
   <p id="lbCap"></p>
 </div>
 
-<script src="assets/script.js?v=17"></script>
-<script src="assets/magic.js?v=17"></script>
-<script src="assets/fx.js?v=17"></script>
-<script src="assets/radio.js?v=17"></script>
+<script src="assets/script.js?v=18"></script>
+<script src="assets/magic.js?v=18"></script>
+<script src="assets/fx.js?v=18"></script>
+<script src="assets/radio.js?v=18"></script>
 </body>
 </html>
