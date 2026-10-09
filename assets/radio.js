@@ -14,8 +14,10 @@
   /* قائمة التشغيل — ضع الملفّات في assets/audio/
      الأسماء هنا وصفيّة؛ بدّلها بما يناسب ترخيصك. */
   var PLAYLIST = [
-    { file: "assets/audio/abdelhalim.mp3", title: "عبد الحليم" },
-    { file: "assets/audio/1414.mp3",       title: "موسيقى الزمن الجميل" }
+    { file: "assets/audio/fairuz-saalouny.mp3",  title: "سألوني الناس — فيروز" },
+    { file: "assets/audio/abdelhalim.mp3",       title: "عبد الحليم" },
+    { file: "assets/audio/deanmartin-amore.mp3", title: "That's Amore — Dean Martin" },
+    { file: "assets/audio/1414.mp3",             title: "موسيقى الزمن الجميل" }
   ];
 
   var TARGET_VOL = 0.32;      // خلفيّة هادئة لا تطغى على الحديث
@@ -58,6 +60,8 @@
 
   var idx = 0;
   var playing = false;
+  // أربعة مقاطع: نبدأ من موضع عشوائي فلا تتكرّر البداية في كل زيارة
+  if (PLAYLIST.length > 2) idx = Math.floor(Math.random() * PLAYLIST.length);
   var available = null;       // null = لم نفحص بعد
   var fadeTimer = null;
 
@@ -195,7 +199,7 @@
       available = ok;
       box.classList.add("is-ready");
       if (!ok) { markMissing(); return; }
-      load(0);
+      load(idx);
       if (!reduced) box.classList.add("is-invite");
       document.addEventListener("pointerdown", firstGesture, { once: false });
       document.addEventListener("keydown", firstGesture, { once: false });
