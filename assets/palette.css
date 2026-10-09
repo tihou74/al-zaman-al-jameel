@@ -397,3 +397,14 @@
   background-size:54px 54px, cover, 220px auto!important;
   background-repeat:repeat,no-repeat,repeat!important;
 }
+
+/* ---------- ٥ جدار الذكريات: زيتوني غامق ---------- */
+#memories{
+  background-color:var(--olive-dark)!important;
+  background-image:
+    linear-gradient(rgba(37,45,31,.9),rgba(28,34,23,.94)),
+    url("img/pattern-velvet-gold.jpg")!important;
+  background-size:cover,240px auto!important;
+  background-repeat:no-repeat,repeat!important;
+}
+#memories .eyebrow--light{color:var(--gold-warm)!important}

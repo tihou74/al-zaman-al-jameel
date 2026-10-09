@@ -1,0 +1,160 @@
+/* ============================================================
+   جدار الزمن الجميل — كولاج حيّ لا صورة مسطّحة
+   كل قطعة عنصر مستقلّ: تتحرّك بعمقها، وتستقيم وتُضاء عند اللمس.
+   ============================================================ */
+
+.memwall{
+  position:relative;width:100%;
+  aspect-ratio:16/9;min-height:460px;
+  border-radius:var(--r-lg);overflow:hidden;
+  background-color:#252D1F;
+  background-image:
+    radial-gradient(circle, rgba(201,162,39,.42) 1.6px, transparent 1.9px),
+    radial-gradient(circle, rgba(217,188,133,.26) 1.1px, transparent 1.4px),
+    linear-gradient(rgba(37,45,31,.86),rgba(28,34,23,.92)),
+    url("img/pattern-velvet-gold.jpg");
+  background-size:56px 56px, 92px 92px, cover, 220px auto;
+  background-position:0 0, 22px 46px, 0 0, 0 0;
+  box-shadow:var(--shadow-lg);
+  perspective:1200px;
+  isolation:isolate;
+}
+@media(max-width:860px){
+  .memwall{aspect-ratio:auto;min-height:0;
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(138px,1fr));
+    gap:12px;padding:16px;}
+}
+
+/* ---------------- القطعة ---------------- */
+.mem{
+  position:absolute;margin:0;
+  width:var(--w,18%);
+  transform:rotate(var(--r,-3deg)) translateZ(0);
+  transition:transform .6s var(--ease),filter .6s var(--ease),
+             box-shadow .6s var(--ease),z-index 0s;
+  filter:saturate(.82) brightness(.9);
+  cursor:zoom-in;z-index:1;
+  will-change:transform;
+}
+@media(max-width:860px){
+  .mem{position:static;width:auto!important;transform:rotate(var(--r,-2deg))}
+}
+
+.mem img{
+  width:100%;height:auto;display:block;border-radius:2px;
+}
+
+/* إطار بولارويد أبيض */
+.mem--pola{
+  background:#FBF6EC;padding:8px 8px 30px;border-radius:3px;
+  box-shadow:0 12px 30px rgba(0,0,0,.45);
+}
+.mem--pola figcaption{
+  font-size:.62rem;color:#4A3B2A;text-align:center;
+  padding-block-start:.45rem;letter-spacing:.02em;
+}
+
+/* قطعة بلا إطار (طابع/إعلان/ملصق) */
+.mem--raw{box-shadow:0 12px 30px rgba(0,0,0,.5);border-radius:3px;overflow:hidden}
+.mem--raw figcaption{display:none}
+
+/* شريط لاصق ورقي */
+.mem--tape::before{
+  content:"";position:absolute;inset-block-start:-9px;inset-inline-start:50%;
+  translate:-50% 0;width:52px;height:19px;
+  background:rgba(236,224,196,.62);
+  box-shadow:0 1px 4px rgba(0,0,0,.3);
+  transform:rotate(-2.5deg);
+}
+
+/* تمرير: تستقيم وترتفع وتُضاء */
+.mem:hover,.mem:focus-visible{
+  transform:rotate(0deg) scale(1.1) translateY(-10px);
+  filter:saturate(1.08) brightness(1.06);
+  box-shadow:0 26px 60px rgba(0,0,0,.6);
+  z-index:20;outline:none;
+}
+.mem:hover figcaption{color:#2B211C}
+
+/* ---------------- مواضع القطع ---------------- */
+.mem--1{--w:14%; inset-inline-start:3%;  inset-block-start:10%; --r:-5deg}
+.mem--2{--w:13%; inset-inline-start:19%; inset-block-start:52%; --r:4deg}
+.mem--3{--w:15%; inset-inline-start:33%; inset-block-start:5%;  --r:-2deg}
+.mem--4{--w:12%; inset-inline-start:52%; inset-block-start:58%; --r:6deg}
+.mem--5{--w:14%; inset-inline-start:63%; inset-block-start:8%;  --r:3deg}
+.mem--6{--w:13%; inset-inline-start:79%; inset-block-start:48%; --r:-6deg}
+.mem--7{--w:11%; inset-inline-start:6%;  inset-block-start:62%; --r:7deg}
+.mem--8{--w:12%; inset-inline-start:46%; inset-block-start:24%; --r:-4deg}
+.mem--9{--w:11%; inset-inline-start:88%; inset-block-start:11%; --r:5deg}
+.mem--10{--w:12%;inset-inline-start:30%; inset-block-start:74%; --r:-3deg}
+
+/* ---------------- عناوين الجدار ---------------- */
+.memwall__title{
+  position:absolute;inset-inline-end:5%;inset-block-start:38%;
+  z-index:15;pointer-events:none;text-align:end;max-width:30%;
+}
+.memwall__title b{
+  display:block;font-family:var(--f-body);font-weight:800;
+  font-size:clamp(1.1rem,2.4vw,2rem);color:var(--cream);
+  line-height:1.3;text-shadow:0 4px 24px rgba(0,0,0,.7);
+}
+.memwall__title span{
+  display:block;margin-block-start:.5rem;font-size:.8rem;
+  color:var(--gold-warm);letter-spacing:.1em;
+}
+@media(max-width:860px){.memwall__title{display:none}}
+
+.memwall__hint{
+  position:absolute;inset-block-end:12px;inset-inline:0;z-index:15;
+  text-align:center;font-size:.72rem;letter-spacing:.16em;
+  color:rgba(244,238,226,.55);pointer-events:none;
+}
+@media(max-width:860px){.memwall__hint{position:static;margin-block-start:10px}}
+
+/* ============================================================
+   عناصر مقطوعة تطفو في الأقسام
+   ============================================================ */
+.floatart{
+  position:absolute;pointer-events:none;z-index:1;
+  filter:drop-shadow(0 16px 32px rgba(0,0,0,.4));
+  opacity:.95;
+}
+.floatart--dallah{
+  width:clamp(120px,15vw,210px);
+  inset-inline-end:2%;inset-block-end:4%;
+  animation:floatA 7s ease-in-out infinite alternate;
+}
+.floatart--cupcake{
+  width:clamp(96px,11vw,160px);
+  inset-inline-start:3%;inset-block-start:8%;
+  animation:floatB 8.5s ease-in-out infinite alternate;
+}
+.floatart--weaver{
+  width:clamp(130px,17vw,250px);
+  inset-inline-start:1%;inset-block-end:0;
+  opacity:.9;
+}
+@keyframes floatA{
+  from{transform:translateY(0) rotate(-2deg)}
+  to  {transform:translateY(-16px) rotate(2deg)}
+}
+@keyframes floatB{
+  from{transform:translateY(-8px) rotate(3deg)}
+  to  {transform:translateY(10px) rotate(-3deg)}
+}
+@media(max-width:760px){.floatart{display:none}}
+
+/* ============================================================
+   تنبيه الحقوق
+   ============================================================ */
+.rights{
+  margin-block-start:1.6rem;padding:1.1rem 1.3rem;border-radius:var(--r);
+  background:rgba(201,162,39,.12);border-inline-start:4px solid var(--gold-dot);
+  font-size:.9rem;line-height:1.85;color:rgba(244,238,226,.86);
+}
+.rights b{color:var(--gold-warm)}
+
+@media (prefers-reduced-motion:reduce){
+  .floatart{animation:none!important}
+  .mem{transition:none}
+}

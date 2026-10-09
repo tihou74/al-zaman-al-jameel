@@ -280,3 +280,49 @@
     document.addEventListener("DOMContentLoaded", boot);
   } else { boot(); }
 })();
+
+/* ============================================================
+   جدار الذكريات — عمق يتبع المؤشّر
+   كل قطعة تتحرّك بمقدار data-depth فينشأ إحساس مجسّم حقيقي.
+   ============================================================ */
+(function () {
+  "use strict";
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (!window.matchMedia("(hover:hover) and (pointer:fine)").matches) return;
+
+  var wall = document.getElementById("memwall");
+  if (!wall) return;
+  var items = [].slice.call(wall.querySelectorAll(".mem"));
+  if (!items.length) return;
+
+  var tx = 0, ty = 0, cx = 0, cy = 0, raf = null;
+
+  function loop() {
+    cx += (tx - cx) * 0.08;
+    cy += (ty - cy) * 0.08;
+    items.forEach(function (el) {
+      if (el.matches(":hover")) { el.style.removeProperty("--mx"); return; }
+      var d = parseFloat(el.getAttribute("data-depth")) || 1;
+      el.style.setProperty("--mx", (cx * d).toFixed(2) + "px");
+      el.style.setProperty("--my", (cy * d).toFixed(2) + "px");
+      el.style.transform =
+        "translate(" + (cx * d).toFixed(2) + "px," + (cy * d).toFixed(2) +
+        "px) rotate(var(--r,-3deg))";
+    });
+    if (Math.abs(tx - cx) > 0.2 || Math.abs(ty - cy) > 0.2) {
+      raf = requestAnimationFrame(loop);
+    } else { raf = null; }
+  }
+
+  wall.addEventListener("mousemove", function (e) {
+    var b = wall.getBoundingClientRect();
+    tx = ((e.clientX - (b.left + b.width / 2)) / b.width) * 26;
+    ty = ((e.clientY - (b.top + b.height / 2)) / b.height) * 20;
+    if (!raf) raf = requestAnimationFrame(loop);
+  }, { passive: true });
+
+  wall.addEventListener("mouseleave", function () {
+    tx = 0; ty = 0;
+    if (!raf) raf = requestAnimationFrame(loop);
+  });
+})();
