@@ -1,0 +1,242 @@
+/* ============================================================
+   الزمن الجميل — نقشاتكم بدل الخلفيات السادة
+   كل سطح = نقشة حقيقيّة + حجاب لوني يضمن قراءة النصّ.
+   يُحمَّل آخراً ليتجاوز القواعد السابقة.
+   ============================================================ */
+
+/* نُعطّل طبقات النقش القديمة لئلّا تتراكم وتُعتِم */
+.sec--dark::before,
+.walk__sticky::before{display:none!important}
+
+/* كان هناك شريط جينجهام أزرق كـborder-image يتراكب مع شريطنا الأحمر */
+.sec+.sec--dark{border-block-start:0!important;border-image:none!important}
+
+/* ============================================================
+   الأسطح الداكنة — دمشقي أحمر وذهبي
+   ============================================================ */
+.sec--dark{
+  background-color:var(--ink);
+  background-image:
+    linear-gradient(rgba(26,18,13,.86),rgba(26,18,13,.9)),
+    url("img/pattern-red.jpg");
+  background-size:cover,400px auto;
+  background-repeat:no-repeat,repeat;
+}
+
+/* حافّة جينجهام تفصل الأقسام الداكنة */
+.sec--dark::after{
+  content:"";position:absolute;inset-block-start:0;inset-inline:0;
+  height:9px;z-index:2;
+  background:url("img/pattern-gingham-red.jpg") repeat-x;
+  background-size:auto 9px;opacity:.9;
+}
+
+/* ============================================================
+   الأسطح الفاتحة — زهور دقيقة بخفوت
+   ============================================================ */
+.sec:not(.sec--dark):not(.sec--cta):not(.sec--accent):not(.sec--pattern){
+  background-color:var(--cream);
+  background-image:
+    linear-gradient(rgba(244,234,218,.94),rgba(244,234,218,.96)),
+    url("img/pattern-floral.jpg");
+  background-size:cover,340px auto;
+  background-repeat:no-repeat,repeat;
+}
+
+/* قسم القيمة المضافة — جينجهام أحمر خفيف */
+.sec--accent{
+  background-color:var(--cream-warm);
+  background-image:
+    linear-gradient(rgba(233,220,196,.9),rgba(233,220,196,.93)),
+    url("img/pattern-gingham-red.jpg");
+  background-size:cover,112px auto;
+  background-repeat:no-repeat,repeat;
+}
+
+/* قسم المنيو — زهور أوضح قليلاً */
+.sec--pattern::before{opacity:.2!important;background-size:330px!important}
+
+/* ============================================================
+   نداء التواصل — دمشقي كحلي
+   ============================================================ */
+.sec--cta{
+  background-color:var(--navy-deep);
+  background-image:
+    linear-gradient(rgba(30,44,61,.84),rgba(46,64,87,.88)),
+    url("img/pattern-blue.jpg");
+  background-size:cover,360px auto;
+  background-repeat:no-repeat,repeat;
+}
+.sec--cta::before{display:none}
+
+/* ============================================================
+   الجولة داخل المطعم — دمشقي أحمر داكن
+   ============================================================ */
+.walk,
+.walk__sticky{
+  background-color:var(--ink);
+  background-image:
+    linear-gradient(rgba(22,15,11,.9),rgba(22,15,11,.93)),
+    url("img/pattern-red.jpg");
+  background-size:cover,430px auto;
+  background-repeat:no-repeat,repeat;
+}
+
+/* ============================================================
+   بيان الميكس — دمشقي كحلي
+   ============================================================ */
+.manifesto{
+  background-color:var(--navy);
+  background-image:
+    linear-gradient(rgba(30,44,61,.88),rgba(46,64,87,.9)),
+    url("img/pattern-blue.jpg");
+  background-size:cover,300px auto;
+  background-repeat:no-repeat,repeat;
+}
+
+/* ============================================================
+   لافتة الأطباق — مخمل ذهبي
+   ============================================================ */
+.marquee{
+  background-color:var(--navy-deep);
+  background-image:
+    linear-gradient(rgba(30,44,61,.82),rgba(23,17,13,.88)),
+    url("img/pattern-velvet-gold.jpg");
+  background-size:cover,210px auto;
+  background-repeat:no-repeat,repeat;
+}
+
+/* ============================================================
+   التذييل — دمشقي أحمر كثيف
+   ============================================================ */
+.foot{
+  background-color:var(--ink);
+  background-image:
+    linear-gradient(rgba(22,15,11,.9),rgba(22,15,11,.94)),
+    url("img/pattern-red.jpg");
+  background-size:cover,300px auto;
+  background-repeat:no-repeat,repeat;
+}
+
+/* ============================================================
+   المشغّل التشويقي والمشعل — نقشة تحت الصور
+   ============================================================ */
+.teaser{
+  background-color:var(--navy-deep);
+  background-image:
+    linear-gradient(rgba(23,17,13,.8),rgba(23,17,13,.88)),
+    url("img/pattern-velvet-gold.jpg");
+  background-size:cover,230px auto;
+}
+.torch,.ba{
+  background-color:#120B07;
+  background-image:
+    linear-gradient(rgba(18,11,7,.86),rgba(18,11,7,.9)),
+    url("img/pattern-blue.jpg");
+  background-size:cover,280px auto;
+}
+.ovenphoto{
+  background-color:#140C06;
+  background-image:
+    linear-gradient(rgba(20,12,6,.84),rgba(20,12,6,.9)),
+    url("img/pattern-red.jpg");
+  background-size:cover,260px auto;
+}
+
+/* ============================================================
+   مقدّمة الفيلم وصندوق التكبير
+   ============================================================ */
+.leader{
+  background-color:#17110D;
+  background-image:
+    linear-gradient(rgba(23,17,13,.93),rgba(23,17,13,.96)),
+    url("img/pattern-red.jpg");
+  background-size:cover,340px auto;
+}
+.lightbox{
+  background-color:rgba(20,15,12,.96);
+  background-image:
+    linear-gradient(rgba(20,15,12,.95),rgba(20,15,12,.97)),
+    url("img/pattern-velvet-gold.jpg");
+  background-size:cover,250px auto;
+}
+
+/* ============================================================
+   البطاقات البيضاء — علامة نقش خفيفة في الزاوية
+   ============================================================ */
+.card:not(.card--dark),
+.pillars,
+.flavor,
+.menu__cat,
+.value article,
+.kpi__box,
+.checks li{
+  position:relative;
+  background-color:#fff;
+  background-image:
+    linear-gradient(rgba(255,255,255,.955),rgba(255,255,255,.975)),
+    url("img/pattern-floral.jpg");
+  background-size:cover,230px auto;
+  background-repeat:no-repeat,repeat;
+}
+
+/* البطاقات الداكنة — دمشقي خفيف */
+.card--dark{
+  background-color:rgba(244,234,218,.07);
+  background-image:
+    linear-gradient(rgba(26,18,13,.5),rgba(26,18,13,.62)),
+    url("img/pattern-red.jpg");
+  background-size:cover,240px auto;
+  background-repeat:no-repeat,repeat;
+  border:1px solid rgba(244,234,218,.16);
+}
+
+/* التنبيهات */
+.callout{
+  background-color:#fff;
+  background-image:
+    linear-gradient(rgba(255,255,255,.95),rgba(255,255,255,.97)),
+    url("img/pattern-floral.jpg");
+  background-size:cover,220px auto;
+}
+.callout--warn{
+  background-image:
+    linear-gradient(rgba(255,246,245,.94),rgba(255,246,245,.96)),
+    url("img/pattern-gingham-red.jpg");
+  background-size:cover,96px auto;
+}
+.sec--dark .callout{
+  background-color:rgba(244,234,218,.08);
+  background-image:
+    linear-gradient(rgba(26,18,13,.55),rgba(26,18,13,.68)),
+    url("img/pattern-red.jpg");
+  background-size:cover,230px auto;
+}
+
+/* ============================================================
+   الترويسة الملتصقة — زهور خفيفة
+   ============================================================ */
+.nav.is-stuck{
+  background-color:rgba(244,234,218,.93);
+  background-image:
+    linear-gradient(rgba(244,234,218,.94),rgba(244,234,218,.96)),
+    url("img/pattern-floral.jpg");
+  background-size:cover,260px auto;
+}
+
+/* ============================================================
+   قائمة الجوال
+   ============================================================ */
+@media(max-width:1080px){
+  .nav__menu{
+    background-color:rgba(244,234,218,.985);
+    background-image:
+      linear-gradient(rgba(244,234,218,.96),rgba(244,234,218,.98)),
+      url("img/pattern-floral.jpg");
+    background-size:cover,240px auto;
+  }
+}
+
+/* ملاحظة أداء: تُرك background-attachment على القيمة الافتراضيّة (scroll)
+   عن قصد — فقيمة fixed تُجبر المتصفّح على إعادة رسم الخلفيّة في كل إطار
+   وتسبّب تقطيعاً واضحاً في التمرير، خاصّة مع فلاتر SVG العاملة في الصفحة. */
