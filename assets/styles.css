@@ -35,6 +35,12 @@
   --ink:        #2B211C;
   --ink-soft:   #5A4A40;
 
+  /* ===== النبيذي: أساس كل سطح داكن (من لقطة العميل) ===== */
+  --wine:       #6F1D24;
+  --wine-soft:  #8A2A30;
+  --wine-deep:  #4A1216;
+  --wine-dark:  #330C10;
+
   /* ===== الشرائط كتدرّج قابل لإعادة الاستخدام ===== */
   --stripes:linear-gradient(90deg,
     var(--st-teal) 0 12.5%, var(--st-cream) 12.5% 25%,
@@ -43,7 +49,7 @@
     var(--st-blue) 75% 87.5%, var(--st-sage) 87.5% 100%);
 
   /* --- الخطوط --- */
-  --f-display: "Aref Ruqaa", "Times New Roman", serif;
+  --f-display: "Alexandria", system-ui, -apple-system, sans-serif;
   --f-body:    "Alexandria", system-ui, -apple-system, sans-serif;
 
   /* --- مقاييس --- */
@@ -743,3 +749,34 @@ a{color:inherit}
   background:rgba(0,0,0,.3);padding:.15rem .5rem;border-radius:5px;color:var(--st-mustard);
 }
 .vslot video{width:100%;border-radius:10px;margin-block-start:1rem}
+
+/* ============================================================
+   العناوين بخطّ Alexandria — أوزان ثقيلة تعوّض غياب الخطّ المُجوَّد
+   ============================================================ */
+.h2,.h3,.hero__title,.pillars__h,.menu__cat h3,.value h3,.card h4,
+.flavor__place,.manifesto h3,.walk__head h2,.timeline li b,
+.gallery__item figcaption,.walk__card figcaption,.dish figcaption,
+.teaser__line,.episode__t,.kpi__val,.nav__name,.foot strong,
+.marquee span,.vslot h4{
+  font-family:var(--f-body)!important;
+  font-weight:700;
+  letter-spacing:-.015em;
+}
+.h2{font-weight:800}
+.kpi__val,.flavor__place{font-weight:600}
+.marquee span{font-weight:500;letter-spacing:.01em}
+
+/* شعار الواجهة بدل العنوان النصّي */
+.hero__logo{
+  margin:0 0 1.2rem;
+  animation:rise 1s .1s var(--ease) both;
+}
+.hero__logo img{
+  width:clamp(240px,34vw,460px);height:auto;
+  border-radius:12px;
+  box-shadow:0 20px 60px rgba(0,0,0,.55);
+}
+.brand__note{
+  margin:1.6rem 0 0;font-size:.92rem;color:var(--ink-soft);
+  border-inline-start:3px solid var(--red);padding-inline-start:1rem;
+}
