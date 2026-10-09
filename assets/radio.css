@@ -1,0 +1,118 @@
+/* ============================================================
+   راديو الزمن الجميل — مشغّل موسيقى الخلفيّة
+   يبدأ عند أول لمسة من الزائر (سياسة المتصفّحات تمنع
+   التشغيل التلقائي للصوت)، ويتذكّر اختياره.
+   ============================================================ */
+
+.radio{
+  position:fixed;z-index:70;
+  inset-block-end:22px;inset-inline-end:22px;
+  display:flex;align-items:center;gap:.6rem;
+  padding:.5rem .55rem;
+  background:rgba(37,45,31,.9);backdrop-filter:blur(14px);
+  border:1px solid rgba(201,162,39,.38);border-radius:100px;
+  box-shadow:0 10px 32px rgba(0,0,0,.4);
+  opacity:0;transform:translateY(16px);
+  transition:opacity .6s var(--ease),transform .6s var(--ease),
+             box-shadow .4s,border-color .4s;
+  max-width:min(74vw,330px);
+}
+.radio.is-ready{opacity:1;transform:none}
+.radio.is-playing{border-color:rgba(201,162,39,.85);box-shadow:0 10px 38px rgba(201,162,39,.26)}
+@media(max-width:620px){
+  .radio{inset-block-end:14px;inset-inline-end:14px;padding:.4rem .45rem;gap:.45rem}
+}
+
+/* ---------------- الأسطوانة الصغيرة ---------------- */
+.radio__disc{
+  width:40px;height:40px;flex:none;border-radius:50%;
+  background:
+    repeating-radial-gradient(circle at 50% 50%,
+      #15100B 0 1.6px,#211A12 1.6px 3.2px),
+    #15100B;
+  display:grid;place-items:center;cursor:pointer;
+  border:0;padding:0;position:relative;
+  box-shadow:inset 0 0 10px rgba(0,0,0,.8);
+}
+.radio__disc::after{
+  content:"";position:absolute;inset:0;border-radius:50%;
+  background:conic-gradient(from 210deg,transparent 0 44%,
+    rgba(244,238,226,.14) 50%,transparent 56% 100%);
+}
+.radio.is-playing .radio__disc{animation:discSpin 3.4s linear infinite}
+@keyframes discSpin{to{transform:rotate(360deg)}}
+
+.radio__disc img{
+  width:17px;height:17px;border-radius:50%;object-fit:cover;
+  position:relative;z-index:2;
+  box-shadow:0 0 0 1.5px rgba(201,162,39,.6);
+}
+.radio__disc:focus-visible{outline:2px solid var(--gold-dot);outline-offset:3px}
+
+/* أيقونة التشغيل فوق الأسطوانة حين تكون متوقّفة */
+.radio__play{
+  position:absolute;inset:0;z-index:3;display:grid;place-items:center;
+  font-size:.8rem;color:var(--cream);
+  background:rgba(37,45,31,.55);border-radius:50%;
+  transition:opacity .3s;
+}
+.radio.is-playing .radio__play{opacity:0}
+
+/* ---------------- النصّ ---------------- */
+.radio__meta{min-width:0;flex:1;line-height:1.35}
+.radio__label{
+  display:block;font-size:.58rem;letter-spacing:.17em;
+  color:var(--gold-warm);
+}
+.radio__track{
+  display:block;font-size:.76rem;color:var(--cream);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+@media(max-width:480px){.radio__meta{display:none}}
+
+/* ---------------- مؤشّر الموجات ---------------- */
+.radio__eq{display:flex;align-items:flex-end;gap:2px;height:16px;flex:none}
+.radio__eq i{
+  width:2.5px;background:var(--gold-dot);border-radius:2px;height:4px;
+  transition:height .2s;
+}
+.radio.is-playing .radio__eq i:nth-child(1){animation:eq .7s ease-in-out infinite alternate}
+.radio.is-playing .radio__eq i:nth-child(2){animation:eq .52s ease-in-out infinite alternate .1s}
+.radio.is-playing .radio__eq i:nth-child(3){animation:eq .83s ease-in-out infinite alternate .2s}
+.radio.is-playing .radio__eq i:nth-child(4){animation:eq .61s ease-in-out infinite alternate .3s}
+@keyframes eq{from{height:3px}to{height:15px}}
+
+/* ---------------- أزرار ---------------- */
+.radio__btn{
+  width:26px;height:26px;flex:none;border:0;cursor:pointer;
+  border-radius:50%;background:transparent;color:rgba(244,238,226,.72);
+  display:grid;place-items:center;font-size:.76rem;
+  transition:background .25s,color .25s,transform .25s;
+}
+.radio__btn:hover{background:rgba(201,162,39,.24);color:var(--cream);transform:scale(1.1)}
+.radio__btn:focus-visible{outline:2px solid var(--gold-dot);outline-offset:2px}
+
+/* ---------------- نبضة دعوة أولى ---------------- */
+.radio.is-invite{animation:invite 2.6s ease-in-out 3}
+@keyframes invite{
+  0%,100%{box-shadow:0 10px 32px rgba(0,0,0,.4)}
+  50%    {box-shadow:0 10px 32px rgba(0,0,0,.4),0 0 0 9px rgba(201,162,39,.14)}
+}
+
+/* ---------------- حالة غياب الملفّات ---------------- */
+.radio.is-missing{border-color:rgba(192,57,43,.5)}
+.radio.is-missing .radio__track{color:rgba(244,238,226,.6);font-size:.7rem}
+
+/* ---------------- الأسطوانة الكبيرة في قسم الفرن ---------------- */
+.vinyl{cursor:pointer}
+.vinyl.is-paused{animation-play-state:paused}
+.vinyl__badge{
+  position:absolute;inset-block-end:-30px;inset-inline:0;text-align:center;
+  font-size:.7rem;letter-spacing:.12em;color:var(--gold-warm);
+}
+
+@media (prefers-reduced-motion:reduce){
+  .radio.is-playing .radio__disc,
+  .radio.is-playing .radio__eq i,
+  .radio.is-invite{animation:none!important}
+}
