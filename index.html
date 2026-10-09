@@ -13,21 +13,41 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=15">
-<link rel="stylesheet" href="assets/magic.css?v=15">
-<link rel="stylesheet" href="assets/oven.css?v=15">
-<link rel="stylesheet" href="assets/fx.css?v=15">
-<link rel="stylesheet" href="assets/photo.css?v=15">
-<link rel="stylesheet" href="assets/textures.css?v=15">
-<link rel="stylesheet" href="assets/palette.css?v=15">
-<link rel="stylesheet" href="assets/memories.css?v=15">
-<link rel="stylesheet" href="assets/radio.css?v=15">
+<link rel="stylesheet" href="assets/styles.css?v=16">
+<link rel="stylesheet" href="assets/magic.css?v=16">
+<link rel="stylesheet" href="assets/oven.css?v=16">
+<link rel="stylesheet" href="assets/fx.css?v=16">
+<link rel="stylesheet" href="assets/photo.css?v=16">
+<link rel="stylesheet" href="assets/textures.css?v=16">
+<link rel="stylesheet" href="assets/palette.css?v=16">
+<link rel="stylesheet" href="assets/memories.css?v=16">
+<link rel="stylesheet" href="assets/radio.css?v=16">
+<link rel="stylesheet" href="assets/uniform.css?v=16">
 </head>
 <body>
 
 <a href="#main" class="skip">تخطَّ إلى المحتوى</a>
 
 <!-- فلاتر اهتزاز الحرارة: تُطبَّق على الصور عبر CSS filter:url(#id) -->
+<svg class="fxdefs" aria-hidden="true" focusable="false"><defs>
+  <pattern id="fGinghamRed" patternUnits="userSpaceOnUse" width="26" height="26">
+    <image href="assets/img/pattern-gingham-red.jpg" x="0" y="0" width="26" height="26"
+           preserveAspectRatio="xMidYMid slice"/>
+  </pattern>
+  <pattern id="fGinghamBlue" patternUnits="userSpaceOnUse" width="26" height="26">
+    <image href="assets/img/pattern-gingham-blue.jpg" x="0" y="0" width="26" height="26"
+           preserveAspectRatio="xMidYMid slice"/>
+  </pattern>
+  <pattern id="fFloral" patternUnits="userSpaceOnUse" width="34" height="34">
+    <image href="assets/img/pattern-floral.jpg" x="0" y="0" width="34" height="34"
+           preserveAspectRatio="xMidYMid slice"/>
+  </pattern>
+  <pattern id="fGinghamOlive" patternUnits="userSpaceOnUse" width="24" height="24">
+    <rect width="24" height="24" fill="#F1F0E3"/>
+    <rect width="12" height="24" fill="#6B7F3F" fill-opacity=".5"/>
+    <rect width="24" height="12" fill="#6B7F3F" fill-opacity=".5"/>
+  </pattern>
+</defs></svg>
 <svg class="fxdefs" aria-hidden="true" focusable="false">
   <defs>
     <filter id="heatPhoto" x="-12%" y="-12%" width="124%" height="124%"
@@ -76,6 +96,7 @@
       <a href="#memories">الزمن</a>
       <a href="#explore">استكشف</a>
       <a href="#menu">المنيو</a>
+      <a href="#uniform">اليونيفورم</a>
       <a href="#why-location">لماذا موقعكم</a>
       <a href="#numbers">الأرقام</a>
       <a href="#plan">التنفيذ</a>
@@ -676,10 +697,120 @@
   </div>
 </section>
 
+
+<!-- ============================ اليونيفورم ============================ -->
+<section class="sec sec--dark" id="uniform">
+  <div class="wrap">
+    <p class="eyebrow eyebrow--light" data-reveal>٠٩ — اليونيفورم</p>
+    <h2 class="h2 h2--light" data-split data-reveal>الزيّ: الهويّة التي تتحرّك بين الطاولات</h2>
+    <p class="sub sub--light" data-reveal>القطع أدناه مرسومة <strong>بأقمشة هويّتكم
+    الفعليّة</strong> — الجينجهام الأحمر هو نفسه مفرش الطاولة، والزهور هي نفسها
+    نقشة الجدران. فالضيف يرى علامةً واحدة من الباب إلى الطبق.</p>
+
+    <div class="uni" data-reveal>
+      <article class="unicard">
+        <div class="unicard__top">
+          <span class="unicard__role">الفرّان</span>
+          <span class="unicard__count">٢ — قلب المطبخ</span>
+        </div>
+        <div class="unicard__stage"><svg class="g-shirt" viewBox="0 0 100 104" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 16 L34 7 L50 15 L66 7 L82 16 L86 44 L75 46 L75 92 L25 92 L25 46 L14 44 Z" fill="#F4EEE2" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-apron" viewBox="-4 -4 108 112" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M36 8 L64 8 L68 32 L80 39 L85 100 L15 100 L20 39 L32 32 Z" fill="#4A3B2A" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-cap" viewBox="0 0 100 62" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M14 44 Q50 0 86 44 Z" fill="#F4EEE2" stroke="#2B211C" stroke-opacity=".32" stroke-width="1.5"/><rect x="8" y="42" width="84" height="11" rx="5.5" fill="#F4EEE2" stroke="#2B211C" stroke-opacity=".32" stroke-width="1.5"/><path d="M22 44 Q50 14 78 44" fill="none" stroke="#2B211C" stroke-opacity=".18" stroke-width="1.2"/></svg></div>
+        <div class="unicard__body">
+          <ul class="unicard__list"><li>قميص كتّان كريمي بأكمام قصيرة مثنيّة</li><li>مريلة جلديّة بنّيّة بصدريّة — تتحمّل حرارة الفرن</li><li>طاقية كريميّة قطنيّة</li><li>حزام أدوات جانبي للمجرفة والملقط</li><li>حذاء جلد مغلق بنعل مانع للانزلاق</li></ul>
+          <div class="unicard__chips"><i style="background:#F4EEE2"></i><i style="background:#4A3B2A"></i><i style="background:#C9A227"></i></div>
+          <p class="unicard__logo">الشعار <b>مطرّز</b> على الصدريّة — بخيط ذهبي على الجلد البنّي.</p>
+        </div>
+      </article>
+      <article class="unicard">
+        <div class="unicard__top">
+          <span class="unicard__role">الكابتن / المضيف</span>
+          <span class="unicard__count">٣ — واجهة الضيف</span>
+        </div>
+        <div class="unicard__stage"><svg class="g-shirt" viewBox="0 0 100 104" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 16 L34 7 L50 15 L66 7 L82 16 L86 44 L75 46 L75 92 L25 92 L25 46 L14 44 Z" fill="#2E4057" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-apron" viewBox="-4 -4 108 112" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M36 8 L64 8 L68 32 L80 39 L85 100 L15 100 L20 39 L32 32 Z" fill="url(#fGinghamOlive)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-scarf" viewBox="0 0 100 84" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 12 L92 12 L50 76 Z" fill="url(#fGinghamRed)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg></div>
+        <div class="unicard__body">
+          <ul class="unicard__list"><li>قميص كحلي بأزرار وأكمام طويلة</li><li>مريلة نصفيّة بجينجهام زيتوني</li><li>منديل عنق بجينجهام أحمر</li><li>بنطال كحلي مستقيم</li><li>مُعلّق اسم نحاسي صغير</li></ul>
+          <div class="unicard__chips"><i style="background:#2E4057"></i><i style="background:#6B7F3F"></i><i style="background:#C0392B"></i></div>
+          <p class="unicard__logo">الشعار <b>مطبوع</b> على جيب الصدر، و<b>مطرّز</b> على طرف المنديل.</p>
+        </div>
+      </article>
+      <article class="unicard">
+        <div class="unicard__top">
+          <span class="unicard__role">الويتر</span>
+          <span class="unicard__count">٦ — الصالة والترّاس</span>
+        </div>
+        <div class="unicard__stage"><svg class="g-shirt" viewBox="0 0 100 104" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 16 L34 7 L50 15 L66 7 L82 16 L86 44 L75 46 L75 92 L25 92 L25 46 L14 44 Z" fill="#F4EEE2" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-apron" viewBox="-4 -4 108 112" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M36 8 L64 8 L68 32 L80 39 L85 100 L15 100 L20 39 L32 32 Z" fill="url(#fGinghamRed)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-scarf" viewBox="0 0 100 84" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 12 L92 12 L50 76 Z" fill="#2E4057" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg></div>
+        <div class="unicard__body">
+          <ul class="unicard__list"><li>قميص كريمي قطني بأكمام مثنيّة</li><li>مريلة طويلة بجينجهام أحمر — نفس مفرش الطاولة</li><li>ربطة عنق كحليّة رفيعة</li><li>بنطال كحلي</li><li>مريلة خدمة بيضاء على الذراع</li></ul>
+          <div class="unicard__chips"><i style="background:#F4EEE2"></i><i style="background:#C0392B"></i><i style="background:#2E4057"></i></div>
+          <p class="unicard__logo">الشعار <b>مطرّز</b> أسفل المريلة — نفس تطريز المفرش بالضبط.</p>
+        </div>
+      </article>
+      <article class="unicard">
+        <div class="unicard__top">
+          <span class="unicard__role">الاستقبال</span>
+          <span class="unicard__count">٢ — المدخل</span>
+        </div>
+        <div class="unicard__stage"><svg class="g-shirt" viewBox="0 0 100 104" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 16 L34 7 L50 15 L66 7 L82 16 L86 44 L75 46 L75 92 L25 92 L25 46 L14 44 Z" fill="url(#fFloral)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-apron" viewBox="-4 -4 108 112" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M36 8 L64 8 L68 32 L80 39 L85 100 L15 100 L20 39 L32 32 Z" fill="#44503A" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-scarf" viewBox="0 0 100 84" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 12 L92 12 L50 76 Z" fill="url(#fGinghamOlive)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg></div>
+        <div class="unicard__body">
+          <ul class="unicard__list"><li>قميص بنقشة الزهور الدقيقة — نقشة الهويّة</li><li>مريلة زيتونيّة قصيرة بخطوط نظيفة</li><li>ربطة شعر أو منديل بجينجهام زيتوني</li><li>بنطال أو تنّورة زيتونيّة</li><li>حذاء مغلق مريح</li></ul>
+          <div class="unicard__chips"><i style="background:#E9E1D2"></i><i style="background:#44503A"></i><i style="background:#6B7F3F"></i></div>
+          <p class="unicard__logo">الشعار <b>مطبوع صغيراً</b> على المريلة، وعلى بطاقة الحجز.</p>
+        </div>
+      </article>
+    </div>
+
+    <h3 class="h3" style="color:var(--cream)">الأقمشة المعتمدة</h3>
+    <div class="fabrics" data-reveal>
+      <figure class="fabric"><img src="assets/img/pattern-gingham-red.jpg" alt="جينجهام أحمر" loading="lazy"><span>جينجهام أحمر · المرايل</span></figure>
+      <figure class="fabric"><img src="assets/img/pattern-gingham-blue.jpg" alt="جينجهام أزرق" loading="lazy"><span>جينجهام أزرق · تفاصيل</span></figure>
+      <figure class="fabric"><img src="assets/img/pattern-floral.jpg" alt="نقشة زهور دقيقة" loading="lazy"><span>زهور · الاستقبال</span></figure>
+      <figure class="fabric fabric--solid" style="background:#F4EEE2"><span style="color:#2B211C">كتّان كريمي</span></figure>
+      <figure class="fabric fabric--solid" style="background:#2E4057"><span>كحلي الشعار</span></figure>
+      <figure class="fabric fabric--solid" style="background:#44503A"><span>زيتوني</span></figure>
+      <figure class="fabric fabric--solid" style="background:#4A3B2A"><span>جلد بنّي · الفرن</span></figure>
+    </div>
+
+    <div class="unigrid" data-reveal>
+      <div class="unibox">
+        <h4>الامتثال الصحّي</h4>
+        <ul>
+          <li>تغطية شعر إلزاميّة لكل من يلامس الطعام</li>
+          <li>أحذية مغلقة بنعل مانع للانزلاق — لا صنادل</li>
+          <li>مرايل بديلة نظيفة في كل وردية</li>
+          <li>أقمشة تتحمّل غسلاً على ٦٠°م</li>
+          <li>عزل حراري لمريلة الفرّان</li>
+          <li>بلا مجوهرات ولا أظافر طويلة في المطبخ</li>
+          <li>شهادات صحيّة سارية لكل العاملين</li>
+        </ul>
+      </div>
+      <div class="unibox">
+        <h4>الصيانة والتكلفة</h4>
+        <ul>
+          <li><b>٣ أطقم</b> لكل فرد — واحد يُلبَس وواحد يُغسَل وواحد احتياطي</li>
+          <li>غسيل تجاري خارجي يوميّاً — لا غسيل داخل الموقع</li>
+          <li>استبدال دوري كل ٦ أشهر أو عند التلف</li>
+          <li>تطريز الشعار داخلياً على كل قطعة لمنع الضياع</li>
+          <li>جرد شهري موثّق</li>
+        </ul>
+        <p style="margin-block-start:.9rem" data-fill>— تكلفة الطقم الواحد
+        وإجمالي التجهيز <span class="badge">يُستكمل منكم</span></p>
+      </div>
+      <div class="unibox">
+        <h4>ولماذا يهمّ مالك الموقع؟</h4>
+        <p>الزيّ المنظّم ليس تفصيلاً جماليّاً — بل <strong style="color:var(--gold-warm)">دليل
+        على مشغّل منضبط</strong>. فريق موحّد المظهر يعني تدريباً فعلياً، والتزاماً
+        بالاشتراطات الصحيّة، وصورةً تنعكس على الموقع كلّه لا على المطعم وحده.</p>
+        <p style="margin-block-start:.8rem">والعكس صحيح: فريق بلا زيّ موحّد أول
+        ما يلحظه زائر الموقع، ويقرأه <strong style="color:var(--gold-warm)">فوضى
+        تشغيليّة</strong> — ويعلق في ذهنه عن المكان بأسره.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============================ لماذا موقعكم ============================ -->
 <section class="sec sec--accent" id="why-location">
   <div class="wrap">
-    <p class="eyebrow" data-reveal>٠٩ — القيمة المضافة</p>
+    <p class="eyebrow" data-reveal>١٠ — القيمة المضافة</p>
     <h2 class="h2" data-split data-reveal>ماذا يكسب الموقع من «الزمن الجميل»؟</h2>
     <p class="sub" data-reveal>هذا أهمّ قسم في العرض — وكان غائباً تماماً عن النسخة الأولى.</p>
 
@@ -699,7 +830,7 @@
 <!-- ============================ الأرقام ============================ -->
 <section class="sec" id="numbers">
   <div class="wrap">
-    <p class="eyebrow" data-reveal>١٠ — الأرقام والجدوى</p>
+    <p class="eyebrow" data-reveal>١١ — الأرقام والجدوى</p>
     <h2 class="h2" data-split data-reveal>الأرقام التي يسألها مالك الموقع</h2>
     <div class="callout callout--warn" data-reveal>
       <b>هذه الحقول تنتظر مدخلاتكم.</b> لم أختلق أرقاماً — رقم مُختلَق في عرض
@@ -730,7 +861,7 @@
 <!-- ============================ القدرة المالية والفريق ============================ -->
 <section class="sec sec--dark" id="capacity">
   <div class="wrap">
-    <p class="eyebrow eyebrow--light" data-reveal>١١ — الجدارة</p>
+    <p class="eyebrow eyebrow--light" data-reveal>١٢ — الجدارة</p>
     <h2 class="h2 h2--light" data-split data-reveal>القدرة المالية والفريق</h2>
     <p class="sub sub--light" data-reveal>سؤال مالك الموقع الأول ليس «ما فكرتكم؟» بل
     <strong>«هل تدفعون الإيجار بانتظام، وتبقون؟»</strong></p>
@@ -749,7 +880,7 @@
 <!-- ============================ خطة التنفيذ ============================ -->
 <section class="sec" id="plan">
   <div class="wrap">
-    <p class="eyebrow" data-reveal>١٢ — التنفيذ</p>
+    <p class="eyebrow" data-reveal>١٣ — التنفيذ</p>
     <h2 class="h2" data-split data-reveal>من التسليم إلى الافتتاح</h2>
     <ol class="timeline" data-reveal>
       <li><span class="timeline__n">١</span><div><b>التعاقد والتراخيص</b><p>توقيع العقد، ورخصة البلدية، وموافقة الدفاع المدني على منظومة الفرن.</p><em data-fill>— المدّة</em></div></li>
@@ -807,9 +938,9 @@
   <p id="lbCap"></p>
 </div>
 
-<script src="assets/script.js?v=15"></script>
-<script src="assets/magic.js?v=15"></script>
-<script src="assets/fx.js?v=15"></script>
-<script src="assets/radio.js?v=15"></script>
+<script src="assets/script.js?v=16"></script>
+<script src="assets/magic.js?v=16"></script>
+<script src="assets/fx.js?v=16"></script>
+<script src="assets/radio.js?v=16"></script>
 </body>
 </html>

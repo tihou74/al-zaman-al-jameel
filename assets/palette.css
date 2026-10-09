@@ -408,3 +408,14 @@
   background-repeat:no-repeat,repeat!important;
 }
 #memories .eyebrow--light{color:var(--gold-warm)!important}
+
+/* ---------- ٩ اليونيفورم: كحلي + دمشقي أزرق ---------- */
+#uniform{
+  background-color:var(--navy)!important;
+  background-image:
+    linear-gradient(rgba(46,64,87,.9),rgba(30,44,61,.94)),
+    url("img/pattern-blue.jpg")!important;
+  background-size:cover,320px auto!important;
+  background-repeat:no-repeat,repeat!important;
+}
+#uniform .eyebrow--light{color:var(--gold-warm)!important}
