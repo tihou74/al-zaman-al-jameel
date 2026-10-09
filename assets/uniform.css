@@ -33,7 +33,7 @@
 
 /* ---------------- مسرح القطع ---------------- */
 .unicard__stage{
-  display:flex;align-items:flex-end;justify-content:center;gap:.4rem;
+  display:flex;align-items:flex-end;justify-content:center;gap:.35rem;flex-wrap:wrap;
   padding:1.3rem .7rem .7rem;min-height:196px;
   background:
     repeating-linear-gradient(135deg,
@@ -120,3 +120,12 @@
   .unicard:hover{transform:none}
   .fabric:hover img{transform:none}
 }
+
+/* قطع إضافيّة من الزيّ الحقيقي */
+.g-vest{width:clamp(60px,17%,78px)}
+.g-bow {width:clamp(40px,12%,54px)}
+.g-tie {width:clamp(32px,10%,44px)}
+
+/* عيّنات قماش مولّدة بـSVG */
+.fabric--swatch svg{width:100%;height:100%;display:block}
+.fabric--swatch{background:#EFE7D6}

@@ -13,16 +13,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=16">
-<link rel="stylesheet" href="assets/magic.css?v=16">
-<link rel="stylesheet" href="assets/oven.css?v=16">
-<link rel="stylesheet" href="assets/fx.css?v=16">
-<link rel="stylesheet" href="assets/photo.css?v=16">
-<link rel="stylesheet" href="assets/textures.css?v=16">
-<link rel="stylesheet" href="assets/palette.css?v=16">
-<link rel="stylesheet" href="assets/memories.css?v=16">
-<link rel="stylesheet" href="assets/radio.css?v=16">
-<link rel="stylesheet" href="assets/uniform.css?v=16">
+<link rel="stylesheet" href="assets/styles.css?v=17">
+<link rel="stylesheet" href="assets/magic.css?v=17">
+<link rel="stylesheet" href="assets/oven.css?v=17">
+<link rel="stylesheet" href="assets/fx.css?v=17">
+<link rel="stylesheet" href="assets/photo.css?v=17">
+<link rel="stylesheet" href="assets/textures.css?v=17">
+<link rel="stylesheet" href="assets/palette.css?v=17">
+<link rel="stylesheet" href="assets/memories.css?v=17">
+<link rel="stylesheet" href="assets/radio.css?v=17">
+<link rel="stylesheet" href="assets/uniform.css?v=17">
 </head>
 <body>
 
@@ -30,22 +30,55 @@
 
 <!-- فلاتر اهتزاز الحرارة: تُطبَّق على الصور عبر CSS filter:url(#id) -->
 <svg class="fxdefs" aria-hidden="true" focusable="false"><defs>
-  <pattern id="fGinghamRed" patternUnits="userSpaceOnUse" width="26" height="26">
-    <image href="assets/img/pattern-gingham-red.jpg" x="0" y="0" width="26" height="26"
-           preserveAspectRatio="xMidYMid slice"/>
+  <!-- جينجهام بيج كبير: مريلة الإطلالة الأولى والكاسكيت -->
+  <pattern id="fGinghamBeige" patternUnits="userSpaceOnUse" width="22" height="22">
+    <rect width="22" height="22" fill="#EDE4CC"/>
+    <rect width="11" height="22" fill="#C9B98A" fill-opacity=".62"/>
+    <rect width="22" height="11" fill="#C9B98A" fill-opacity=".62"/>
   </pattern>
-  <pattern id="fGinghamBlue" patternUnits="userSpaceOnUse" width="26" height="26">
-    <image href="assets/img/pattern-gingham-blue.jpg" x="0" y="0" width="26" height="26"
-           preserveAspectRatio="xMidYMid slice"/>
+  <!-- جينجهام زيتوني -->
+  <pattern id="fGinghamOlive" patternUnits="userSpaceOnUse" width="20" height="20">
+    <rect width="20" height="20" fill="#F1F0E3"/>
+    <rect width="10" height="20" fill="#6B7F3F" fill-opacity=".5"/>
+    <rect width="20" height="10" fill="#6B7F3F" fill-opacity=".5"/>
   </pattern>
-  <pattern id="fFloral" patternUnits="userSpaceOnUse" width="34" height="34">
-    <image href="assets/img/pattern-floral.jpg" x="0" y="0" width="34" height="34"
-           preserveAspectRatio="xMidYMid slice"/>
+  <!-- قميص مقلّم أخضر وأبيض -->
+  <pattern id="fStripeGreen" patternUnits="userSpaceOnUse" width="9" height="9">
+    <rect width="9" height="9" fill="#F7F5EE"/>
+    <rect width="4" height="9" fill="#2F6B4F"/>
   </pattern>
-  <pattern id="fGinghamOlive" patternUnits="userSpaceOnUse" width="24" height="24">
-    <rect width="24" height="24" fill="#F1F0E3"/>
-    <rect width="12" height="24" fill="#6B7F3F" fill-opacity=".5"/>
-    <rect width="24" height="12" fill="#6B7F3F" fill-opacity=".5"/>
+  <!-- قميص مقلّم أزرق رفيع -->
+  <pattern id="fStripeBlue" patternUnits="userSpaceOnUse" width="7" height="7">
+    <rect width="7" height="7" fill="#EFF2F6"/>
+    <rect width="2.4" height="7" fill="#7D96B8"/>
+  </pattern>
+  <!-- كوردروي بنّي: خطوط رأسيّة دقيقة -->
+  <pattern id="fCorduroy" patternUnits="userSpaceOnUse" width="5" height="5">
+    <rect width="5" height="5" fill="#7A5230"/>
+    <rect width="1.6" height="5" fill="#000" fill-opacity=".18"/>
+  </pattern>
+  <!-- دينم كحلي -->
+  <pattern id="fDenim" patternUnits="userSpaceOnUse" width="6" height="6"
+           patternTransform="rotate(45)">
+    <rect width="6" height="6" fill="#2A3A52"/>
+    <rect width="6" height="2" fill="#fff" fill-opacity=".07"/>
+  </pattern>
+  <!-- كانفاس كريمي -->
+  <pattern id="fCanvas" patternUnits="userSpaceOnUse" width="6" height="6">
+    <rect width="6" height="6" fill="#EFE7D6"/>
+    <rect width="6" height="1.4" fill="#C9B98A" fill-opacity=".3"/>
+    <rect width="1.4" height="6" fill="#C9B98A" fill-opacity=".22"/>
+  </pattern>
+  <!-- كرافة كاروهات -->
+  <pattern id="fPlaid" patternUnits="userSpaceOnUse" width="14" height="14">
+    <rect width="14" height="14" fill="#6E6A5A"/>
+    <rect width="14" height="4" fill="#C9B98A" fill-opacity=".5"/>
+    <rect width="4" height="14" fill="#8A4A2C" fill-opacity=".55"/>
+  </pattern>
+  <!-- تريكو أخضر غامق -->
+  <pattern id="fKnitGreen" patternUnits="userSpaceOnUse" width="5" height="5">
+    <rect width="5" height="5" fill="#1F4A35"/>
+    <circle cx="2.5" cy="2.5" r="1" fill="#fff" fill-opacity=".12"/>
   </pattern>
 </defs></svg>
 <svg class="fxdefs" aria-hidden="true" focusable="false">
@@ -359,11 +392,14 @@
           <figure class="pattern"><img src="assets/img/pattern-velvet-gold.jpg" alt="مخمل منقوش ذهبي" loading="lazy"><span>مخمل ذهبي</span></figure>
         </div>
 
-        <div class="callout callout--warn" style="margin-block-start:1.8rem">
-          <b>تضارب يجب حسمه:</b> الشعار على المفرش المطرّز يكتب
-          <code dir="ltr">alzamen aljameel</code>، والشعار الرسمي يكتب
-          <code dir="ltr">alzamen aldjameel</code>، والنطاق المقترح يستخدم الثاني.
-          اختاروا كتابة واحدة وثبّتوها في كل شيء.
+        <div class="callout" style="margin-block-start:1.8rem">
+          <b>كتابة الاسم — حُسمت:</b> <code dir="ltr">alzamen aldjameel</code>.
+          هي المستخدَمة في الشعار الرسمي، وفي <strong>تطريز الزيّ المنفَّذ فعلاً</strong>،
+          وفي النطاق المقترح.
+          <br><br>
+          يبقى استثناء واحد: المفرش المطرّز القديم يكتب
+          <code dir="ltr">alzamen aljameel</code> بلا حرف <code dir="ltr">d</code> —
+          يُستبدل في الدفعة القادمة من المفارش.
         </div>
       </div>
     </div>
@@ -702,70 +738,72 @@
 <section class="sec sec--dark" id="uniform">
   <div class="wrap">
     <p class="eyebrow eyebrow--light" data-reveal>٠٩ — اليونيفورم</p>
-    <h2 class="h2 h2--light" data-split data-reveal>الزيّ: الهويّة التي تتحرّك بين الطاولات</h2>
-    <p class="sub sub--light" data-reveal>القطع أدناه مرسومة <strong>بأقمشة هويّتكم
-    الفعليّة</strong> — الجينجهام الأحمر هو نفسه مفرش الطاولة، والزهور هي نفسها
-    نقشة الجدران. فالضيف يرى علامةً واحدة من الباب إلى الطبق.</p>
+    <h2 class="h2 h2--light" data-split data-reveal>الزيّ — الهويّة التي تتحرّك بين الطاولات</h2>
+    <p class="sub sub--light" data-reveal>ثلاث إطلالات <strong>مُصمَّمة ومنفَّذة فعلاً</strong>،
+    مرسومة أدناه بأقمشتها الحقيقيّة. الشعار مطرّز على كل مريلة — فالضيف يرى
+    علامةً واحدة من الباب إلى الطبق.</p>
 
     <div class="uni" data-reveal>
       <article class="unicard">
         <div class="unicard__top">
-          <span class="unicard__role">الفرّان</span>
-          <span class="unicard__count">٢ — قلب المطبخ</span>
-        </div>
-        <div class="unicard__stage"><svg class="g-shirt" viewBox="0 0 100 104" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 16 L34 7 L50 15 L66 7 L82 16 L86 44 L75 46 L75 92 L25 92 L25 46 L14 44 Z" fill="#F4EEE2" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-apron" viewBox="-4 -4 108 112" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M36 8 L64 8 L68 32 L80 39 L85 100 L15 100 L20 39 L32 32 Z" fill="#4A3B2A" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-cap" viewBox="0 0 100 62" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M14 44 Q50 0 86 44 Z" fill="#F4EEE2" stroke="#2B211C" stroke-opacity=".32" stroke-width="1.5"/><rect x="8" y="42" width="84" height="11" rx="5.5" fill="#F4EEE2" stroke="#2B211C" stroke-opacity=".32" stroke-width="1.5"/><path d="M22 44 Q50 14 78 44" fill="none" stroke="#2B211C" stroke-opacity=".18" stroke-width="1.2"/></svg></div>
-        <div class="unicard__body">
-          <ul class="unicard__list"><li>قميص كتّان كريمي بأكمام قصيرة مثنيّة</li><li>مريلة جلديّة بنّيّة بصدريّة — تتحمّل حرارة الفرن</li><li>طاقية كريميّة قطنيّة</li><li>حزام أدوات جانبي للمجرفة والملقط</li><li>حذاء جلد مغلق بنعل مانع للانزلاق</li></ul>
-          <div class="unicard__chips"><i style="background:#F4EEE2"></i><i style="background:#4A3B2A"></i><i style="background:#C9A227"></i></div>
-          <p class="unicard__logo">الشعار <b>مطرّز</b> على الصدريّة — بخيط ذهبي على الجلد البنّي.</p>
-        </div>
-      </article>
-      <article class="unicard">
-        <div class="unicard__top">
-          <span class="unicard__role">الكابتن / المضيف</span>
-          <span class="unicard__count">٣ — واجهة الضيف</span>
-        </div>
-        <div class="unicard__stage"><svg class="g-shirt" viewBox="0 0 100 104" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 16 L34 7 L50 15 L66 7 L82 16 L86 44 L75 46 L75 92 L25 92 L25 46 L14 44 Z" fill="#2E4057" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-apron" viewBox="-4 -4 108 112" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M36 8 L64 8 L68 32 L80 39 L85 100 L15 100 L20 39 L32 32 Z" fill="url(#fGinghamOlive)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-scarf" viewBox="0 0 100 84" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 12 L92 12 L50 76 Z" fill="url(#fGinghamRed)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg></div>
-        <div class="unicard__body">
-          <ul class="unicard__list"><li>قميص كحلي بأزرار وأكمام طويلة</li><li>مريلة نصفيّة بجينجهام زيتوني</li><li>منديل عنق بجينجهام أحمر</li><li>بنطال كحلي مستقيم</li><li>مُعلّق اسم نحاسي صغير</li></ul>
-          <div class="unicard__chips"><i style="background:#2E4057"></i><i style="background:#6B7F3F"></i><i style="background:#C0392B"></i></div>
-          <p class="unicard__logo">الشعار <b>مطبوع</b> على جيب الصدر، و<b>مطرّز</b> على طرف المنديل.</p>
-        </div>
-      </article>
-      <article class="unicard">
-        <div class="unicard__top">
-          <span class="unicard__role">الويتر</span>
+          <span class="unicard__role">الويتر — الإطلالة النهاريّة</span>
           <span class="unicard__count">٦ — الصالة والترّاس</span>
         </div>
-        <div class="unicard__stage"><svg class="g-shirt" viewBox="0 0 100 104" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 16 L34 7 L50 15 L66 7 L82 16 L86 44 L75 46 L75 92 L25 92 L25 46 L14 44 Z" fill="#F4EEE2" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-apron" viewBox="-4 -4 108 112" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M36 8 L64 8 L68 32 L80 39 L85 100 L15 100 L20 39 L32 32 Z" fill="url(#fGinghamRed)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-scarf" viewBox="0 0 100 84" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 12 L92 12 L50 76 Z" fill="#2E4057" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg></div>
+        <div class="unicard__stage"><svg class="g-shirt" viewBox="0 0 100 104" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 16 L34 7 L50 15 L66 7 L82 16 L86 44 L75 46 L75 92 L25 92 L25 46 L14 44 Z" fill="#FBFAF6" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-apron" viewBox="-4 -4 108 112" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M36 8 L64 8 L68 32 L80 39 L85 100 L15 100 L20 39 L32 32 Z" fill="url(#fGinghamBeige)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/><path d="M30 0 L36 8 L34 10 L26 2 Z M70 0 L64 8 L66 10 L74 2 Z" fill="url(#fGinghamBeige)" stroke="#2B211C" stroke-opacity=".25" stroke-width="1.2"/></svg><svg class="g-cap" viewBox="0 0 100 58" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 42 Q18 8 50 8 Q84 8 88 40 L88 46 Q50 52 12 46 Z" fill="url(#fGinghamBeige)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-bow" viewBox="0 0 100 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 18 L34 6 L34 42 L6 30 Z M94 18 L66 6 L66 42 L94 30 Z M36 16 H64 V32 H36 Z" fill="#1A1A1A" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg></div>
         <div class="unicard__body">
-          <ul class="unicard__list"><li>قميص كريمي قطني بأكمام مثنيّة</li><li>مريلة طويلة بجينجهام أحمر — نفس مفرش الطاولة</li><li>ربطة عنق كحليّة رفيعة</li><li>بنطال كحلي</li><li>مريلة خدمة بيضاء على الذراع</li></ul>
-          <div class="unicard__chips"><i style="background:#F4EEE2"></i><i style="background:#C0392B"></i><i style="background:#2E4057"></i></div>
-          <p class="unicard__logo">الشعار <b>مطرّز</b> أسفل المريلة — نفس تطريز المفرش بالضبط.</p>
+          <ul class="unicard__list"><li>قميص أبيض قطني بأكمام طويلة وياقة كلاسيكيّة</li><li><b>بابيون أسود</b></li><li>مريلة <b>جينجهام بيج كبير</b> بحمّالات كتف</li><li>كاسكيت (فلات كاب) بنفس قماش المريلة</li><li>بنطال كحلي داكن مستقيم</li></ul>
+          <div class="unicard__chips"><i style="background:#FBFAF6"></i><i style="background:#C9B98A"></i><i style="background:#1A1A1A"></i><i style="background:#2A3A52"></i></div>
+          <p class="unicard__logo">الشعار <b>مطرّز أبيض</b> أسفل يمين المريلة.</p>
         </div>
       </article>
       <article class="unicard">
         <div class="unicard__top">
-          <span class="unicard__role">الاستقبال</span>
-          <span class="unicard__count">٢ — المدخل</span>
+          <span class="unicard__role">الكابتن — الإطلالة الرسميّة</span>
+          <span class="unicard__count">٣ — واجهة الضيف</span>
         </div>
-        <div class="unicard__stage"><svg class="g-shirt" viewBox="0 0 100 104" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 16 L34 7 L50 15 L66 7 L82 16 L86 44 L75 46 L75 92 L25 92 L25 46 L14 44 Z" fill="url(#fFloral)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-apron" viewBox="-4 -4 108 112" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M36 8 L64 8 L68 32 L80 39 L85 100 L15 100 L20 39 L32 32 Z" fill="#44503A" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-scarf" viewBox="0 0 100 84" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 12 L92 12 L50 76 Z" fill="url(#fGinghamOlive)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg></div>
+        <div class="unicard__stage"><svg class="g-shirt" viewBox="0 0 100 104" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 16 L34 7 L50 15 L66 7 L82 16 L86 44 L75 46 L75 92 L25 92 L25 46 L14 44 Z" fill="url(#fStripeBlue)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-vest" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M22 14 L36 8 L50 30 L64 8 L78 14 L80 44 L78 86 L50 92 L22 86 L20 44 Z" fill="url(#fCorduroy)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-apron" viewBox="-4 -4 108 112" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M36 8 L64 8 L68 32 L80 39 L85 100 L15 100 L20 39 L32 32 Z" fill="url(#fDenim)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-cap" viewBox="0 0 100 58" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 42 Q18 8 50 8 Q84 8 88 40 L88 46 Q50 52 12 46 Z" fill="#2A3A52" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-tie" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M40 6 H60 L64 22 L54 86 L50 94 L46 86 L36 22 Z" fill="url(#fPlaid)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg></div>
         <div class="unicard__body">
-          <ul class="unicard__list"><li>قميص بنقشة الزهور الدقيقة — نقشة الهويّة</li><li>مريلة زيتونيّة قصيرة بخطوط نظيفة</li><li>ربطة شعر أو منديل بجينجهام زيتوني</li><li>بنطال أو تنّورة زيتونيّة</li><li>حذاء مغلق مريح</li></ul>
-          <div class="unicard__chips"><i style="background:#E9E1D2"></i><i style="background:#44503A"></i><i style="background:#6B7F3F"></i></div>
-          <p class="unicard__logo">الشعار <b>مطبوع صغيراً</b> على المريلة، وعلى بطاقة الحجز.</p>
+          <ul class="unicard__list"><li>قميص <b>مقلّم أزرق رفيع</b> بأكمام طويلة</li><li><b>صديري كوردروي بنّي</b> مزدوج الأزرار</li><li>كرافة <b>كاروهات</b> ترابيّة</li><li>مريلة <b>دينم كحلي</b> بخطوط نظيفة</li><li>كاسكيت كحلي · <b>شارة اسم نحاسيّة</b></li></ul>
+          <div class="unicard__chips"><i style="background:#7D96B8"></i><i style="background:#7A5230"></i><i style="background:#2A3A52"></i><i style="background:#C9A227"></i></div>
+          <p class="unicard__logo">الشعار <b>مطرّز أبيض</b> وسط المريلة الكحليّة، والشارة النحاسيّة على الصديري.</p>
+        </div>
+      </article>
+      <article class="unicard">
+        <div class="unicard__top">
+          <span class="unicard__role">المضيف — إطلالة المساء</span>
+          <span class="unicard__count">٢ — الاستقبال والقهوة</span>
+        </div>
+        <div class="unicard__stage"><svg class="g-shirt" viewBox="0 0 100 104" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 16 L34 7 L50 15 L66 7 L82 16 L86 44 L75 46 L75 92 L25 92 L25 46 L14 44 Z" fill="url(#fStripeGreen)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-apron" viewBox="-4 -4 108 112" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M36 8 L64 8 L68 32 L80 39 L85 100 L15 100 L20 39 L32 32 Z" fill="url(#fCanvas)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-tie" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M40 6 H60 L64 22 L54 86 L50 94 L46 86 L36 22 Z" fill="url(#fKnitGreen)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg></div>
+        <div class="unicard__body">
+          <ul class="unicard__list"><li>قميص <b>مقلّم أخضر وأبيض</b> بياقة بيضاء</li><li><b>كرافة تريكو خضراء غامقة</b></li><li>مريلة <b>كانفاس كريمي</b> بحمّالة رقبة</li><li>بنطال كحلي أو زيتوني</li><li>حذاء جلد مغلق</li></ul>
+          <div class="unicard__chips"><i style="background:#2F6B4F"></i><i style="background:#EFE7D6"></i><i style="background:#1F4A35"></i><i style="background:#2A3A52"></i></div>
+          <p class="unicard__logo">الشعار <b>مطرّز كحلي وأخضر</b> على المريلة الكريميّة — أجمل تنفيذ في الطقم.</p>
+        </div>
+      </article>
+      <article class="unicard">
+        <div class="unicard__top">
+          <span class="unicard__role">الفرّان — مقترح يُعتمد</span>
+          <span class="unicard__count">٢ — قلب المطبخ</span>
+        </div>
+        <div class="unicard__stage"><svg class="g-shirt" viewBox="0 0 100 104" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 16 L34 7 L50 15 L66 7 L82 16 L86 44 L75 46 L75 92 L25 92 L25 46 L14 44 Z" fill="#FBFAF6" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-apron" viewBox="-4 -4 108 112" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M36 8 L64 8 L68 32 L80 39 L85 100 L15 100 L20 39 L32 32 Z" fill="#4A3B2A" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg><svg class="g-cap" viewBox="0 0 100 58" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 42 Q18 8 50 8 Q84 8 88 40 L88 46 Q50 52 12 46 Z" fill="url(#fGinghamBeige)" stroke="#2B211C" stroke-opacity=".3" stroke-width="1.4"/></svg></div>
+        <div class="unicard__body">
+          <ul class="unicard__list"><li>قميص كتّان أبيض بأكمام قصيرة مثنيّة</li><li>مريلة <b>جلد بنّي</b> بصدريّة — تتحمّل حرارة الفرن</li><li>كاسكيت بجينجهام بيج (يربطه بالطقم)</li><li>حزام أدوات جانبي للمجرفة والملقط</li><li>حذاء جلد مغلق بنعل مانع للانزلاق</li></ul>
+          <div class="unicard__chips"><i style="background:#FBFAF6"></i><i style="background:#4A3B2A"></i><i style="background:#C9B98A"></i><i style="background:#C9A227"></i></div>
+          <p class="unicard__logo">الشعار <b>مطرّز بخيط ذهبي</b> على الصدريّة الجلديّة.</p>
         </div>
       </article>
     </div>
 
     <h3 class="h3" style="color:var(--cream)">الأقمشة المعتمدة</h3>
     <div class="fabrics" data-reveal>
-      <figure class="fabric"><img src="assets/img/pattern-gingham-red.jpg" alt="جينجهام أحمر" loading="lazy"><span>جينجهام أحمر · المرايل</span></figure>
-      <figure class="fabric"><img src="assets/img/pattern-gingham-blue.jpg" alt="جينجهام أزرق" loading="lazy"><span>جينجهام أزرق · تفاصيل</span></figure>
-      <figure class="fabric"><img src="assets/img/pattern-floral.jpg" alt="نقشة زهور دقيقة" loading="lazy"><span>زهور · الاستقبال</span></figure>
-      <figure class="fabric fabric--solid" style="background:#F4EEE2"><span style="color:#2B211C">كتّان كريمي</span></figure>
-      <figure class="fabric fabric--solid" style="background:#2E4057"><span>كحلي الشعار</span></figure>
-      <figure class="fabric fabric--solid" style="background:#44503A"><span>زيتوني</span></figure>
+      <figure class="fabric fabric--swatch"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="url(#fGinghamBeige)"/></svg><span>جينجهام بيج · المرايل والكاسكيت</span></figure>
+      <figure class="fabric fabric--swatch"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="url(#fDenim)"/></svg><span>دينم كحلي · مريلة الكابتن</span></figure>
+      <figure class="fabric fabric--swatch"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="url(#fCanvas)"/></svg><span>كانفاس كريمي · مريلة المساء</span></figure>
+      <figure class="fabric fabric--swatch"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="url(#fStripeGreen)"/></svg><span>مقلّم أخضر · قميص المساء</span></figure>
+      <figure class="fabric fabric--swatch"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="url(#fStripeBlue)"/></svg><span>مقلّم أزرق · قميص الكابتن</span></figure>
+      <figure class="fabric fabric--swatch"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="url(#fCorduroy)"/></svg><span>كوردروي بنّي · الصديري</span></figure>
+      <figure class="fabric fabric--swatch"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="url(#fKnitGreen)"/></svg><span>تريكو أخضر · الكرافة</span></figure>
+      <figure class="fabric fabric--swatch"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="url(#fPlaid)"/></svg><span>كاروهات · كرافة الكابتن</span></figure>
       <figure class="fabric fabric--solid" style="background:#4A3B2A"><span>جلد بنّي · الفرن</span></figure>
     </div>
 
@@ -938,9 +976,9 @@
   <p id="lbCap"></p>
 </div>
 
-<script src="assets/script.js?v=16"></script>
-<script src="assets/magic.js?v=16"></script>
-<script src="assets/fx.js?v=16"></script>
-<script src="assets/radio.js?v=16"></script>
+<script src="assets/script.js?v=17"></script>
+<script src="assets/magic.js?v=17"></script>
+<script src="assets/fx.js?v=17"></script>
+<script src="assets/radio.js?v=17"></script>
 </body>
 </html>
