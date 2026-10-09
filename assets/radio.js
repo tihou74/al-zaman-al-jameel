@@ -14,9 +14,7 @@
   /* قائمة التشغيل — ضع الملفّات في assets/audio/
      الأسماء هنا وصفيّة؛ بدّلها بما يناسب ترخيصك. */
   var PLAYLIST = [
-    { file: "assets/audio/track-01.mp3", title: "موسيقى الزمن الجميل — ١" },
-    { file: "assets/audio/track-02.mp3", title: "موسيقى الزمن الجميل — ٢" },
-    { file: "assets/audio/track-03.mp3", title: "موسيقى الزمن الجميل — ٣" }
+    { file: "assets/audio/1414.mp3", title: "موسيقى الزمن الجميل" }
   ];
 
   var TARGET_VOL = 0.32;      // خلفيّة هادئة لا تطغى على الحديث
@@ -39,13 +37,17 @@
       '<span class="radio__label">راديو الزمن الجميل</span>' +
       '<span class="radio__track" id="rTrack">اضغط للتشغيل</span>' +
     "</span>" +
-    '<button class="radio__btn" id="rNext" aria-label="المقطع التالي">⏭</button>' +
+    (PLAYLIST.length > 1
+      ? '<button class="radio__btn" id="rNext" aria-label="المقطع التالي">⏭</button>'
+      : "") +
     '<button class="radio__btn" id="rOff" aria-label="إخفاء المشغّل">✕</button>';
   document.body.appendChild(box);
 
   var audio = new Audio();
   audio.preload = "none";
   audio.volume = 0;
+  // مقطع واحد => تكرار مستمرّ بدل الانتقال
+  if (PLAYLIST.length === 1) audio.loop = true;
 
   var disc = box.querySelector("#rDisc");
   var playIcon = box.querySelector("#rPlayIcon");
@@ -152,7 +154,7 @@
 
   /* ---------------------------------------------- الأحداث */
   disc.addEventListener("click", toggle);
-  nextBtn.addEventListener("click", function () {
+  if (nextBtn) nextBtn.addEventListener("click", function () {
     load(idx + 1);
     if (playing) { audio.play().then(function () { fadeTo(TARGET_VOL); }).catch(function(){}); }
     else play();
